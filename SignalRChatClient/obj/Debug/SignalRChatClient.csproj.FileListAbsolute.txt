@@ -1,0 +1,331 @@
+D:\signalR\SignalRChat\SignalRChatClient\bin\Debug\SignalRChatClient.exe.config
+D:\signalR\SignalRChat\SignalRChatClient\bin\Debug\SignalRChatClient.exe
+D:\signalR\SignalRChat\SignalRChatClient\bin\Debug\SignalRChatClient.pdb
+D:\signalR\SignalRChat\SignalRChatClient\obj\Debug\SignalRChatClient.csprojAssemblyReference.cache
+D:\signalR\SignalRChat\SignalRChatClient\obj\Debug\MainWindow.g.cs
+D:\signalR\SignalRChat\SignalRChatClient\obj\Debug\App.g.cs
+D:\signalR\SignalRChat\SignalRChatClient\obj\Debug\SignalRChatClient_MarkupCompile.cache
+D:\signalR\SignalRChat\SignalRChatClient\obj\Debug\SignalRChatClient_MarkupCompile.lref
+D:\signalR\SignalRChat\SignalRChatClient\obj\Debug\MainWindow.baml
+D:\signalR\SignalRChat\SignalRChatClient\obj\Debug\SignalRChatClient.g.resources
+D:\signalR\SignalRChat\SignalRChatClient\obj\Debug\SignalRChatClient.Properties.Resources.resources
+D:\signalR\SignalRChat\SignalRChatClient\obj\Debug\SignalRChatClient.csproj.GenerateResource.cache
+D:\signalR\SignalRChat\SignalRChatClient\obj\Debug\SignalRChatClient.csproj.CoreCompileInputs.cache
+D:\signalR\SignalRChat\SignalRChatClient\obj\Debug\SignalRChatClient.exe
+D:\signalR\SignalRChat\SignalRChatClient\obj\Debug\SignalRChatClient.pdb
+D:\signalR\SignalRChat\SignalRChatClient\bin\Debug\Microsoft.Win32.Primitives.dll
+D:\signalR\SignalRChat\SignalRChatClient\bin\Debug\netstandard.dll
+D:\signalR\SignalRChat\SignalRChatClient\bin\Debug\System.AppContext.dll
+D:\signalR\SignalRChat\SignalRChatClient\bin\Debug\System.Collections.Concurrent.dll
+D:\signalR\SignalRChat\SignalRChatClient\bin\Debug\System.Collections.dll
+D:\signalR\SignalRChat\SignalRChatClient\bin\Debug\System.Collections.NonGeneric.dll
+D:\signalR\SignalRChat\SignalRChatClient\bin\Debug\System.Collections.Specialized.dll
+D:\signalR\SignalRChat\SignalRChatClient\bin\Debug\System.ComponentModel.dll
+D:\signalR\SignalRChat\SignalRChatClient\bin\Debug\System.ComponentModel.EventBasedAsync.dll
+D:\signalR\SignalRChat\SignalRChatClient\bin\Debug\System.ComponentModel.Primitives.dll
+D:\signalR\SignalRChat\SignalRChatClient\bin\Debug\System.ComponentModel.TypeConverter.dll
+D:\signalR\SignalRChat\SignalRChatClient\bin\Debug\System.Console.dll
+D:\signalR\SignalRChat\SignalRChatClient\bin\Debug\System.Data.Common.dll
+D:\signalR\SignalRChat\SignalRChatClient\bin\Debug\System.Diagnostics.Contracts.dll
+D:\signalR\SignalRChat\SignalRChatClient\bin\Debug\System.Diagnostics.Debug.dll
+D:\signalR\SignalRChat\SignalRChatClient\bin\Debug\System.Diagnostics.FileVersionInfo.dll
+D:\signalR\SignalRChat\SignalRChatClient\bin\Debug\System.Diagnostics.Process.dll
+D:\signalR\SignalRChat\SignalRChatClient\bin\Debug\System.Diagnostics.StackTrace.dll
+D:\signalR\SignalRChat\SignalRChatClient\bin\Debug\System.Diagnostics.TextWriterTraceListener.dll
+D:\signalR\SignalRChat\SignalRChatClient\bin\Debug\System.Diagnostics.Tools.dll
+D:\signalR\SignalRChat\SignalRChatClient\bin\Debug\System.Diagnostics.TraceSource.dll
+D:\signalR\SignalRChat\SignalRChatClient\bin\Debug\System.Diagnostics.Tracing.dll
+D:\signalR\SignalRChat\SignalRChatClient\bin\Debug\System.Drawing.Primitives.dll
+D:\signalR\SignalRChat\SignalRChatClient\bin\Debug\System.Dynamic.Runtime.dll
+D:\signalR\SignalRChat\SignalRChatClient\bin\Debug\System.Globalization.Calendars.dll
+D:\signalR\SignalRChat\SignalRChatClient\bin\Debug\System.Globalization.dll
+D:\signalR\SignalRChat\SignalRChatClient\bin\Debug\System.Globalization.Extensions.dll
+D:\signalR\SignalRChat\SignalRChatClient\bin\Debug\System.IO.Compression.dll
+D:\signalR\SignalRChat\SignalRChatClient\bin\Debug\System.IO.Compression.ZipFile.dll
+D:\signalR\SignalRChat\SignalRChatClient\bin\Debug\System.IO.dll
+D:\signalR\SignalRChat\SignalRChatClient\bin\Debug\System.IO.FileSystem.dll
+D:\signalR\SignalRChat\SignalRChatClient\bin\Debug\System.IO.FileSystem.DriveInfo.dll
+D:\signalR\SignalRChat\SignalRChatClient\bin\Debug\System.IO.FileSystem.Primitives.dll
+D:\signalR\SignalRChat\SignalRChatClient\bin\Debug\System.IO.FileSystem.Watcher.dll
+D:\signalR\SignalRChat\SignalRChatClient\bin\Debug\System.IO.IsolatedStorage.dll
+D:\signalR\SignalRChat\SignalRChatClient\bin\Debug\System.IO.MemoryMappedFiles.dll
+D:\signalR\SignalRChat\SignalRChatClient\bin\Debug\System.IO.Pipes.dll
+D:\signalR\SignalRChat\SignalRChatClient\bin\Debug\System.IO.UnmanagedMemoryStream.dll
+D:\signalR\SignalRChat\SignalRChatClient\bin\Debug\System.Linq.dll
+D:\signalR\SignalRChat\SignalRChatClient\bin\Debug\System.Linq.Expressions.dll
+D:\signalR\SignalRChat\SignalRChatClient\bin\Debug\System.Linq.Parallel.dll
+D:\signalR\SignalRChat\SignalRChatClient\bin\Debug\System.Linq.Queryable.dll
+D:\signalR\SignalRChat\SignalRChatClient\bin\Debug\System.Net.Http.dll
+D:\signalR\SignalRChat\SignalRChatClient\bin\Debug\System.Net.NameResolution.dll
+D:\signalR\SignalRChat\SignalRChatClient\bin\Debug\System.Net.NetworkInformation.dll
+D:\signalR\SignalRChat\SignalRChatClient\bin\Debug\System.Net.Ping.dll
+D:\signalR\SignalRChat\SignalRChatClient\bin\Debug\System.Net.Primitives.dll
+D:\signalR\SignalRChat\SignalRChatClient\bin\Debug\System.Net.Requests.dll
+D:\signalR\SignalRChat\SignalRChatClient\bin\Debug\System.Net.Security.dll
+D:\signalR\SignalRChat\SignalRChatClient\bin\Debug\System.Net.Sockets.dll
+D:\signalR\SignalRChat\SignalRChatClient\bin\Debug\System.Net.WebHeaderCollection.dll
+D:\signalR\SignalRChat\SignalRChatClient\bin\Debug\System.Net.WebSockets.Client.dll
+D:\signalR\SignalRChat\SignalRChatClient\bin\Debug\System.Net.WebSockets.dll
+D:\signalR\SignalRChat\SignalRChatClient\bin\Debug\System.ObjectModel.dll
+D:\signalR\SignalRChat\SignalRChatClient\bin\Debug\System.Reflection.dll
+D:\signalR\SignalRChat\SignalRChatClient\bin\Debug\System.Reflection.Extensions.dll
+D:\signalR\SignalRChat\SignalRChatClient\bin\Debug\System.Reflection.Primitives.dll
+D:\signalR\SignalRChat\SignalRChatClient\bin\Debug\System.Resources.Reader.dll
+D:\signalR\SignalRChat\SignalRChatClient\bin\Debug\System.Resources.ResourceManager.dll
+D:\signalR\SignalRChat\SignalRChatClient\bin\Debug\System.Resources.Writer.dll
+D:\signalR\SignalRChat\SignalRChatClient\bin\Debug\System.Runtime.CompilerServices.VisualC.dll
+D:\signalR\SignalRChat\SignalRChatClient\bin\Debug\System.Runtime.dll
+D:\signalR\SignalRChat\SignalRChatClient\bin\Debug\System.Runtime.Extensions.dll
+D:\signalR\SignalRChat\SignalRChatClient\bin\Debug\System.Runtime.Handles.dll
+D:\signalR\SignalRChat\SignalRChatClient\bin\Debug\System.Runtime.InteropServices.dll
+D:\signalR\SignalRChat\SignalRChatClient\bin\Debug\System.Runtime.InteropServices.RuntimeInformation.dll
+D:\signalR\SignalRChat\SignalRChatClient\bin\Debug\System.Runtime.Numerics.dll
+D:\signalR\SignalRChat\SignalRChatClient\bin\Debug\System.Runtime.Serialization.Formatters.dll
+D:\signalR\SignalRChat\SignalRChatClient\bin\Debug\System.Runtime.Serialization.Json.dll
+D:\signalR\SignalRChat\SignalRChatClient\bin\Debug\System.Runtime.Serialization.Primitives.dll
+D:\signalR\SignalRChat\SignalRChatClient\bin\Debug\System.Runtime.Serialization.Xml.dll
+D:\signalR\SignalRChat\SignalRChatClient\bin\Debug\System.Security.Claims.dll
+D:\signalR\SignalRChat\SignalRChatClient\bin\Debug\System.Security.Cryptography.Algorithms.dll
+D:\signalR\SignalRChat\SignalRChatClient\bin\Debug\System.Security.Cryptography.Csp.dll
+D:\signalR\SignalRChat\SignalRChatClient\bin\Debug\System.Security.Cryptography.Encoding.dll
+D:\signalR\SignalRChat\SignalRChatClient\bin\Debug\System.Security.Cryptography.Primitives.dll
+D:\signalR\SignalRChat\SignalRChatClient\bin\Debug\System.Security.Cryptography.X509Certificates.dll
+D:\signalR\SignalRChat\SignalRChatClient\bin\Debug\System.Security.Principal.dll
+D:\signalR\SignalRChat\SignalRChatClient\bin\Debug\System.Security.SecureString.dll
+D:\signalR\SignalRChat\SignalRChatClient\bin\Debug\System.Text.Encoding.dll
+D:\signalR\SignalRChat\SignalRChatClient\bin\Debug\System.Text.Encoding.Extensions.dll
+D:\signalR\SignalRChat\SignalRChatClient\bin\Debug\System.Text.RegularExpressions.dll
+D:\signalR\SignalRChat\SignalRChatClient\bin\Debug\System.Threading.dll
+D:\signalR\SignalRChat\SignalRChatClient\bin\Debug\System.Threading.Overlapped.dll
+D:\signalR\SignalRChat\SignalRChatClient\bin\Debug\System.Threading.Tasks.dll
+D:\signalR\SignalRChat\SignalRChatClient\bin\Debug\System.Threading.Tasks.Parallel.dll
+D:\signalR\SignalRChat\SignalRChatClient\bin\Debug\System.Threading.Thread.dll
+D:\signalR\SignalRChat\SignalRChatClient\bin\Debug\System.Threading.ThreadPool.dll
+D:\signalR\SignalRChat\SignalRChatClient\bin\Debug\System.Threading.Timer.dll
+D:\signalR\SignalRChat\SignalRChatClient\bin\Debug\System.ValueTuple.dll
+D:\signalR\SignalRChat\SignalRChatClient\bin\Debug\System.Xml.ReaderWriter.dll
+D:\signalR\SignalRChat\SignalRChatClient\bin\Debug\System.Xml.XDocument.dll
+D:\signalR\SignalRChat\SignalRChatClient\bin\Debug\System.Xml.XmlDocument.dll
+D:\signalR\SignalRChat\SignalRChatClient\bin\Debug\System.Xml.XmlSerializer.dll
+D:\signalR\SignalRChat\SignalRChatClient\bin\Debug\System.Xml.XPath.dll
+D:\signalR\SignalRChat\SignalRChatClient\bin\Debug\System.Xml.XPath.XDocument.dll
+D:\signalR\SignalRChat\SignalRChatClient\bin\Debug\Microsoft.AspNetCore.Connections.Abstractions.dll
+D:\signalR\SignalRChat\SignalRChatClient\bin\Debug\Microsoft.AspNetCore.Http.Connections.Client.dll
+D:\signalR\SignalRChat\SignalRChatClient\bin\Debug\Microsoft.AspNetCore.Http.Connections.Common.dll
+D:\signalR\SignalRChat\SignalRChatClient\bin\Debug\Microsoft.AspNetCore.Http.Features.dll
+D:\signalR\SignalRChat\SignalRChatClient\bin\Debug\Microsoft.AspNetCore.SignalR.Client.Core.dll
+D:\signalR\SignalRChat\SignalRChatClient\bin\Debug\Microsoft.AspNetCore.SignalR.Client.dll
+D:\signalR\SignalRChat\SignalRChatClient\bin\Debug\Microsoft.AspNetCore.SignalR.Common.dll
+D:\signalR\SignalRChat\SignalRChatClient\bin\Debug\Microsoft.AspNetCore.SignalR.Protocols.Json.dll
+D:\signalR\SignalRChat\SignalRChatClient\bin\Debug\Microsoft.Extensions.Configuration.Abstractions.dll
+D:\signalR\SignalRChat\SignalRChatClient\bin\Debug\Microsoft.Extensions.Configuration.Binder.dll
+D:\signalR\SignalRChat\SignalRChatClient\bin\Debug\Microsoft.Extensions.Configuration.dll
+D:\signalR\SignalRChat\SignalRChatClient\bin\Debug\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+D:\signalR\SignalRChat\SignalRChatClient\bin\Debug\Microsoft.Extensions.DependencyInjection.dll
+D:\signalR\SignalRChat\SignalRChatClient\bin\Debug\Microsoft.Extensions.Logging.Abstractions.dll
+D:\signalR\SignalRChat\SignalRChatClient\bin\Debug\Microsoft.Extensions.Logging.dll
+D:\signalR\SignalRChat\SignalRChatClient\bin\Debug\Microsoft.Extensions.Options.dll
+D:\signalR\SignalRChat\SignalRChatClient\bin\Debug\Microsoft.Extensions.Primitives.dll
+D:\signalR\SignalRChat\SignalRChatClient\bin\Debug\Newtonsoft.Json.dll
+D:\signalR\SignalRChat\SignalRChatClient\bin\Debug\System.Buffers.dll
+D:\signalR\SignalRChat\SignalRChatClient\bin\Debug\System.ComponentModel.Annotations.dll
+D:\signalR\SignalRChat\SignalRChatClient\bin\Debug\System.IO.Pipelines.dll
+D:\signalR\SignalRChat\SignalRChatClient\bin\Debug\System.Memory.dll
+D:\signalR\SignalRChat\SignalRChatClient\bin\Debug\System.Numerics.Vectors.dll
+D:\signalR\SignalRChat\SignalRChatClient\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+D:\signalR\SignalRChat\SignalRChatClient\bin\Debug\System.Threading.Channels.dll
+D:\signalR\SignalRChat\SignalRChatClient\bin\Debug\System.Threading.Tasks.Extensions.dll
+D:\signalR\SignalRChat\SignalRChatClient\bin\Debug\Microsoft.AspNetCore.Connections.Abstractions.xml
+D:\signalR\SignalRChat\SignalRChatClient\bin\Debug\Microsoft.AspNetCore.Http.Connections.Client.xml
+D:\signalR\SignalRChat\SignalRChatClient\bin\Debug\Microsoft.AspNetCore.Http.Connections.Common.xml
+D:\signalR\SignalRChat\SignalRChatClient\bin\Debug\Microsoft.AspNetCore.Http.Features.xml
+D:\signalR\SignalRChat\SignalRChatClient\bin\Debug\Microsoft.AspNetCore.SignalR.Client.xml
+D:\signalR\SignalRChat\SignalRChatClient\bin\Debug\Microsoft.AspNetCore.SignalR.Client.Core.xml
+D:\signalR\SignalRChat\SignalRChatClient\bin\Debug\Microsoft.AspNetCore.SignalR.Common.xml
+D:\signalR\SignalRChat\SignalRChatClient\bin\Debug\Microsoft.AspNetCore.SignalR.Protocols.Json.xml
+D:\signalR\SignalRChat\SignalRChatClient\bin\Debug\Microsoft.Extensions.Configuration.xml
+D:\signalR\SignalRChat\SignalRChatClient\bin\Debug\Microsoft.Extensions.Configuration.Abstractions.xml
+D:\signalR\SignalRChat\SignalRChatClient\bin\Debug\Microsoft.Extensions.Configuration.Binder.xml
+D:\signalR\SignalRChat\SignalRChatClient\bin\Debug\Microsoft.Extensions.DependencyInjection.xml
+D:\signalR\SignalRChat\SignalRChatClient\bin\Debug\Microsoft.Extensions.DependencyInjection.Abstractions.xml
+D:\signalR\SignalRChat\SignalRChatClient\bin\Debug\Microsoft.Extensions.Logging.xml
+D:\signalR\SignalRChat\SignalRChatClient\bin\Debug\Microsoft.Extensions.Logging.Abstractions.xml
+D:\signalR\SignalRChat\SignalRChatClient\bin\Debug\Microsoft.Extensions.Options.xml
+D:\signalR\SignalRChat\SignalRChatClient\bin\Debug\Microsoft.Extensions.Primitives.xml
+D:\signalR\SignalRChat\SignalRChatClient\bin\Debug\Newtonsoft.Json.xml
+D:\signalR\SignalRChat\SignalRChatClient\bin\Debug\System.Buffers.xml
+D:\signalR\SignalRChat\SignalRChatClient\bin\Debug\System.IO.Pipelines.xml
+D:\signalR\SignalRChat\SignalRChatClient\bin\Debug\System.Memory.xml
+D:\signalR\SignalRChat\SignalRChatClient\bin\Debug\System.Numerics.Vectors.xml
+D:\signalR\SignalRChat\SignalRChatClient\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+D:\signalR\SignalRChat\SignalRChatClient\bin\Debug\System.Threading.Channels.xml
+D:\signalR\SignalRChat\SignalRChatClient\bin\Debug\System.Threading.Tasks.Extensions.xml
+D:\signalR\SignalRChat\SignalRChatClient\obj\Debug\SignalRChatClient.exe.config
+D:\signalR\SignalRChat\SignalRChatClient\obj\Debug\SignalRChatClient.csproj.CopyComplete
+D:\signalR\SignalRChat\SignalRChatClient\bin\Debug\Microsoft.AspNet.SignalR.Client.dll
+D:\signalR\SignalRChat\SignalRChatClient\bin\Debug\Microsoft.AspNet.SignalR.Client.xml
+D:\Обучение C#\SignalRChat\SignalRChat\SignalRChatClient\bin\Debug\SignalRChatClient.exe.config
+D:\Обучение C#\SignalRChat\SignalRChat\SignalRChatClient\bin\Debug\SignalRChatClient.exe
+D:\Обучение C#\SignalRChat\SignalRChat\SignalRChatClient\bin\Debug\SignalRChatClient.pdb
+D:\Обучение C#\SignalRChat\SignalRChat\SignalRChatClient\bin\Debug\Microsoft.Win32.Primitives.dll
+D:\Обучение C#\SignalRChat\SignalRChat\SignalRChatClient\bin\Debug\netstandard.dll
+D:\Обучение C#\SignalRChat\SignalRChat\SignalRChatClient\bin\Debug\System.AppContext.dll
+D:\Обучение C#\SignalRChat\SignalRChat\SignalRChatClient\bin\Debug\System.Collections.Concurrent.dll
+D:\Обучение C#\SignalRChat\SignalRChat\SignalRChatClient\bin\Debug\System.Collections.dll
+D:\Обучение C#\SignalRChat\SignalRChat\SignalRChatClient\bin\Debug\System.Collections.NonGeneric.dll
+D:\Обучение C#\SignalRChat\SignalRChat\SignalRChatClient\bin\Debug\System.Collections.Specialized.dll
+D:\Обучение C#\SignalRChat\SignalRChat\SignalRChatClient\bin\Debug\System.ComponentModel.dll
+D:\Обучение C#\SignalRChat\SignalRChat\SignalRChatClient\bin\Debug\System.ComponentModel.EventBasedAsync.dll
+D:\Обучение C#\SignalRChat\SignalRChat\SignalRChatClient\bin\Debug\System.ComponentModel.Primitives.dll
+D:\Обучение C#\SignalRChat\SignalRChat\SignalRChatClient\bin\Debug\System.ComponentModel.TypeConverter.dll
+D:\Обучение C#\SignalRChat\SignalRChat\SignalRChatClient\bin\Debug\System.Console.dll
+D:\Обучение C#\SignalRChat\SignalRChat\SignalRChatClient\bin\Debug\System.Data.Common.dll
+D:\Обучение C#\SignalRChat\SignalRChat\SignalRChatClient\bin\Debug\System.Diagnostics.Contracts.dll
+D:\Обучение C#\SignalRChat\SignalRChat\SignalRChatClient\bin\Debug\System.Diagnostics.Debug.dll
+D:\Обучение C#\SignalRChat\SignalRChat\SignalRChatClient\bin\Debug\System.Diagnostics.FileVersionInfo.dll
+D:\Обучение C#\SignalRChat\SignalRChat\SignalRChatClient\bin\Debug\System.Diagnostics.Process.dll
+D:\Обучение C#\SignalRChat\SignalRChat\SignalRChatClient\bin\Debug\System.Diagnostics.StackTrace.dll
+D:\Обучение C#\SignalRChat\SignalRChat\SignalRChatClient\bin\Debug\System.Diagnostics.TextWriterTraceListener.dll
+D:\Обучение C#\SignalRChat\SignalRChat\SignalRChatClient\bin\Debug\System.Diagnostics.Tools.dll
+D:\Обучение C#\SignalRChat\SignalRChat\SignalRChatClient\bin\Debug\System.Diagnostics.TraceSource.dll
+D:\Обучение C#\SignalRChat\SignalRChat\SignalRChatClient\bin\Debug\System.Diagnostics.Tracing.dll
+D:\Обучение C#\SignalRChat\SignalRChat\SignalRChatClient\bin\Debug\System.Drawing.Primitives.dll
+D:\Обучение C#\SignalRChat\SignalRChat\SignalRChatClient\bin\Debug\System.Dynamic.Runtime.dll
+D:\Обучение C#\SignalRChat\SignalRChat\SignalRChatClient\bin\Debug\System.Globalization.Calendars.dll
+D:\Обучение C#\SignalRChat\SignalRChat\SignalRChatClient\bin\Debug\System.Globalization.dll
+D:\Обучение C#\SignalRChat\SignalRChat\SignalRChatClient\bin\Debug\System.Globalization.Extensions.dll
+D:\Обучение C#\SignalRChat\SignalRChat\SignalRChatClient\bin\Debug\System.IO.Compression.dll
+D:\Обучение C#\SignalRChat\SignalRChat\SignalRChatClient\bin\Debug\System.IO.Compression.ZipFile.dll
+D:\Обучение C#\SignalRChat\SignalRChat\SignalRChatClient\bin\Debug\System.IO.dll
+D:\Обучение C#\SignalRChat\SignalRChat\SignalRChatClient\bin\Debug\System.IO.FileSystem.dll
+D:\Обучение C#\SignalRChat\SignalRChat\SignalRChatClient\bin\Debug\System.IO.FileSystem.DriveInfo.dll
+D:\Обучение C#\SignalRChat\SignalRChat\SignalRChatClient\bin\Debug\System.IO.FileSystem.Primitives.dll
+D:\Обучение C#\SignalRChat\SignalRChat\SignalRChatClient\bin\Debug\System.IO.FileSystem.Watcher.dll
+D:\Обучение C#\SignalRChat\SignalRChat\SignalRChatClient\bin\Debug\System.IO.IsolatedStorage.dll
+D:\Обучение C#\SignalRChat\SignalRChat\SignalRChatClient\bin\Debug\System.IO.MemoryMappedFiles.dll
+D:\Обучение C#\SignalRChat\SignalRChat\SignalRChatClient\bin\Debug\System.IO.Pipes.dll
+D:\Обучение C#\SignalRChat\SignalRChat\SignalRChatClient\bin\Debug\System.IO.UnmanagedMemoryStream.dll
+D:\Обучение C#\SignalRChat\SignalRChat\SignalRChatClient\bin\Debug\System.Linq.dll
+D:\Обучение C#\SignalRChat\SignalRChat\SignalRChatClient\bin\Debug\System.Linq.Expressions.dll
+D:\Обучение C#\SignalRChat\SignalRChat\SignalRChatClient\bin\Debug\System.Linq.Parallel.dll
+D:\Обучение C#\SignalRChat\SignalRChat\SignalRChatClient\bin\Debug\System.Linq.Queryable.dll
+D:\Обучение C#\SignalRChat\SignalRChat\SignalRChatClient\bin\Debug\System.Net.Http.dll
+D:\Обучение C#\SignalRChat\SignalRChat\SignalRChatClient\bin\Debug\System.Net.NameResolution.dll
+D:\Обучение C#\SignalRChat\SignalRChat\SignalRChatClient\bin\Debug\System.Net.NetworkInformation.dll
+D:\Обучение C#\SignalRChat\SignalRChat\SignalRChatClient\bin\Debug\System.Net.Ping.dll
+D:\Обучение C#\SignalRChat\SignalRChat\SignalRChatClient\bin\Debug\System.Net.Primitives.dll
+D:\Обучение C#\SignalRChat\SignalRChat\SignalRChatClient\bin\Debug\System.Net.Requests.dll
+D:\Обучение C#\SignalRChat\SignalRChat\SignalRChatClient\bin\Debug\System.Net.Security.dll
+D:\Обучение C#\SignalRChat\SignalRChat\SignalRChatClient\bin\Debug\System.Net.Sockets.dll
+D:\Обучение C#\SignalRChat\SignalRChat\SignalRChatClient\bin\Debug\System.Net.WebHeaderCollection.dll
+D:\Обучение C#\SignalRChat\SignalRChat\SignalRChatClient\bin\Debug\System.Net.WebSockets.Client.dll
+D:\Обучение C#\SignalRChat\SignalRChat\SignalRChatClient\bin\Debug\System.Net.WebSockets.dll
+D:\Обучение C#\SignalRChat\SignalRChat\SignalRChatClient\bin\Debug\System.ObjectModel.dll
+D:\Обучение C#\SignalRChat\SignalRChat\SignalRChatClient\bin\Debug\System.Reflection.dll
+D:\Обучение C#\SignalRChat\SignalRChat\SignalRChatClient\bin\Debug\System.Reflection.Extensions.dll
+D:\Обучение C#\SignalRChat\SignalRChat\SignalRChatClient\bin\Debug\System.Reflection.Primitives.dll
+D:\Обучение C#\SignalRChat\SignalRChat\SignalRChatClient\bin\Debug\System.Resources.Reader.dll
+D:\Обучение C#\SignalRChat\SignalRChat\SignalRChatClient\bin\Debug\System.Resources.ResourceManager.dll
+D:\Обучение C#\SignalRChat\SignalRChat\SignalRChatClient\bin\Debug\System.Resources.Writer.dll
+D:\Обучение C#\SignalRChat\SignalRChat\SignalRChatClient\bin\Debug\System.Runtime.CompilerServices.VisualC.dll
+D:\Обучение C#\SignalRChat\SignalRChat\SignalRChatClient\bin\Debug\System.Runtime.dll
+D:\Обучение C#\SignalRChat\SignalRChat\SignalRChatClient\bin\Debug\System.Runtime.Extensions.dll
+D:\Обучение C#\SignalRChat\SignalRChat\SignalRChatClient\bin\Debug\System.Runtime.Handles.dll
+D:\Обучение C#\SignalRChat\SignalRChat\SignalRChatClient\bin\Debug\System.Runtime.InteropServices.dll
+D:\Обучение C#\SignalRChat\SignalRChat\SignalRChatClient\bin\Debug\System.Runtime.InteropServices.RuntimeInformation.dll
+D:\Обучение C#\SignalRChat\SignalRChat\SignalRChatClient\bin\Debug\System.Runtime.Numerics.dll
+D:\Обучение C#\SignalRChat\SignalRChat\SignalRChatClient\bin\Debug\System.Runtime.Serialization.Formatters.dll
+D:\Обучение C#\SignalRChat\SignalRChat\SignalRChatClient\bin\Debug\System.Runtime.Serialization.Json.dll
+D:\Обучение C#\SignalRChat\SignalRChat\SignalRChatClient\bin\Debug\System.Runtime.Serialization.Primitives.dll
+D:\Обучение C#\SignalRChat\SignalRChat\SignalRChatClient\bin\Debug\System.Runtime.Serialization.Xml.dll
+D:\Обучение C#\SignalRChat\SignalRChat\SignalRChatClient\bin\Debug\System.Security.Claims.dll
+D:\Обучение C#\SignalRChat\SignalRChat\SignalRChatClient\bin\Debug\System.Security.Cryptography.Algorithms.dll
+D:\Обучение C#\SignalRChat\SignalRChat\SignalRChatClient\bin\Debug\System.Security.Cryptography.Csp.dll
+D:\Обучение C#\SignalRChat\SignalRChat\SignalRChatClient\bin\Debug\System.Security.Cryptography.Encoding.dll
+D:\Обучение C#\SignalRChat\SignalRChat\SignalRChatClient\bin\Debug\System.Security.Cryptography.Primitives.dll
+D:\Обучение C#\SignalRChat\SignalRChat\SignalRChatClient\bin\Debug\System.Security.Cryptography.X509Certificates.dll
+D:\Обучение C#\SignalRChat\SignalRChat\SignalRChatClient\bin\Debug\System.Security.Principal.dll
+D:\Обучение C#\SignalRChat\SignalRChat\SignalRChatClient\bin\Debug\System.Security.SecureString.dll
+D:\Обучение C#\SignalRChat\SignalRChat\SignalRChatClient\bin\Debug\System.Text.Encoding.dll
+D:\Обучение C#\SignalRChat\SignalRChat\SignalRChatClient\bin\Debug\System.Text.Encoding.Extensions.dll
+D:\Обучение C#\SignalRChat\SignalRChat\SignalRChatClient\bin\Debug\System.Text.RegularExpressions.dll
+D:\Обучение C#\SignalRChat\SignalRChat\SignalRChatClient\bin\Debug\System.Threading.dll
+D:\Обучение C#\SignalRChat\SignalRChat\SignalRChatClient\bin\Debug\System.Threading.Overlapped.dll
+D:\Обучение C#\SignalRChat\SignalRChat\SignalRChatClient\bin\Debug\System.Threading.Tasks.dll
+D:\Обучение C#\SignalRChat\SignalRChat\SignalRChatClient\bin\Debug\System.Threading.Tasks.Parallel.dll
+D:\Обучение C#\SignalRChat\SignalRChat\SignalRChatClient\bin\Debug\System.Threading.Thread.dll
+D:\Обучение C#\SignalRChat\SignalRChat\SignalRChatClient\bin\Debug\System.Threading.ThreadPool.dll
+D:\Обучение C#\SignalRChat\SignalRChat\SignalRChatClient\bin\Debug\System.Threading.Timer.dll
+D:\Обучение C#\SignalRChat\SignalRChat\SignalRChatClient\bin\Debug\System.ValueTuple.dll
+D:\Обучение C#\SignalRChat\SignalRChat\SignalRChatClient\bin\Debug\System.Xml.ReaderWriter.dll
+D:\Обучение C#\SignalRChat\SignalRChat\SignalRChatClient\bin\Debug\System.Xml.XDocument.dll
+D:\Обучение C#\SignalRChat\SignalRChat\SignalRChatClient\bin\Debug\System.Xml.XmlDocument.dll
+D:\Обучение C#\SignalRChat\SignalRChat\SignalRChatClient\bin\Debug\System.Xml.XmlSerializer.dll
+D:\Обучение C#\SignalRChat\SignalRChat\SignalRChatClient\bin\Debug\System.Xml.XPath.dll
+D:\Обучение C#\SignalRChat\SignalRChat\SignalRChatClient\bin\Debug\System.Xml.XPath.XDocument.dll
+D:\Обучение C#\SignalRChat\SignalRChat\SignalRChatClient\bin\Debug\Microsoft.AspNet.SignalR.Client.dll
+D:\Обучение C#\SignalRChat\SignalRChat\SignalRChatClient\bin\Debug\Microsoft.AspNetCore.Connections.Abstractions.dll
+D:\Обучение C#\SignalRChat\SignalRChat\SignalRChatClient\bin\Debug\Microsoft.AspNetCore.Http.Connections.Client.dll
+D:\Обучение C#\SignalRChat\SignalRChat\SignalRChatClient\bin\Debug\Microsoft.AspNetCore.Http.Connections.Common.dll
+D:\Обучение C#\SignalRChat\SignalRChat\SignalRChatClient\bin\Debug\Microsoft.AspNetCore.Http.Features.dll
+D:\Обучение C#\SignalRChat\SignalRChat\SignalRChatClient\bin\Debug\Microsoft.AspNetCore.SignalR.Client.Core.dll
+D:\Обучение C#\SignalRChat\SignalRChat\SignalRChatClient\bin\Debug\Microsoft.AspNetCore.SignalR.Client.dll
+D:\Обучение C#\SignalRChat\SignalRChat\SignalRChatClient\bin\Debug\Microsoft.AspNetCore.SignalR.Common.dll
+D:\Обучение C#\SignalRChat\SignalRChat\SignalRChatClient\bin\Debug\Microsoft.AspNetCore.SignalR.Protocols.Json.dll
+D:\Обучение C#\SignalRChat\SignalRChat\SignalRChatClient\bin\Debug\Microsoft.Extensions.Configuration.Abstractions.dll
+D:\Обучение C#\SignalRChat\SignalRChat\SignalRChatClient\bin\Debug\Microsoft.Extensions.Configuration.Binder.dll
+D:\Обучение C#\SignalRChat\SignalRChat\SignalRChatClient\bin\Debug\Microsoft.Extensions.Configuration.dll
+D:\Обучение C#\SignalRChat\SignalRChat\SignalRChatClient\bin\Debug\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+D:\Обучение C#\SignalRChat\SignalRChat\SignalRChatClient\bin\Debug\Microsoft.Extensions.DependencyInjection.dll
+D:\Обучение C#\SignalRChat\SignalRChat\SignalRChatClient\bin\Debug\Microsoft.Extensions.Logging.Abstractions.dll
+D:\Обучение C#\SignalRChat\SignalRChat\SignalRChatClient\bin\Debug\Microsoft.Extensions.Logging.dll
+D:\Обучение C#\SignalRChat\SignalRChat\SignalRChatClient\bin\Debug\Microsoft.Extensions.Options.dll
+D:\Обучение C#\SignalRChat\SignalRChat\SignalRChatClient\bin\Debug\Microsoft.Extensions.Primitives.dll
+D:\Обучение C#\SignalRChat\SignalRChat\SignalRChatClient\bin\Debug\Newtonsoft.Json.dll
+D:\Обучение C#\SignalRChat\SignalRChat\SignalRChatClient\bin\Debug\System.Buffers.dll
+D:\Обучение C#\SignalRChat\SignalRChat\SignalRChatClient\bin\Debug\System.ComponentModel.Annotations.dll
+D:\Обучение C#\SignalRChat\SignalRChat\SignalRChatClient\bin\Debug\System.IO.Pipelines.dll
+D:\Обучение C#\SignalRChat\SignalRChat\SignalRChatClient\bin\Debug\System.Memory.dll
+D:\Обучение C#\SignalRChat\SignalRChat\SignalRChatClient\bin\Debug\System.Numerics.Vectors.dll
+D:\Обучение C#\SignalRChat\SignalRChat\SignalRChatClient\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+D:\Обучение C#\SignalRChat\SignalRChat\SignalRChatClient\bin\Debug\System.Threading.Channels.dll
+D:\Обучение C#\SignalRChat\SignalRChat\SignalRChatClient\bin\Debug\System.Threading.Tasks.Extensions.dll
+D:\Обучение C#\SignalRChat\SignalRChat\SignalRChatClient\bin\Debug\Microsoft.AspNet.SignalR.Client.xml
+D:\Обучение C#\SignalRChat\SignalRChat\SignalRChatClient\bin\Debug\Microsoft.AspNetCore.Connections.Abstractions.xml
+D:\Обучение C#\SignalRChat\SignalRChat\SignalRChatClient\bin\Debug\Microsoft.AspNetCore.Http.Connections.Client.xml
+D:\Обучение C#\SignalRChat\SignalRChat\SignalRChatClient\bin\Debug\Microsoft.AspNetCore.Http.Connections.Common.xml
+D:\Обучение C#\SignalRChat\SignalRChat\SignalRChatClient\bin\Debug\Microsoft.AspNetCore.Http.Features.xml
+D:\Обучение C#\SignalRChat\SignalRChat\SignalRChatClient\bin\Debug\Microsoft.AspNetCore.SignalR.Client.xml
+D:\Обучение C#\SignalRChat\SignalRChat\SignalRChatClient\bin\Debug\Microsoft.AspNetCore.SignalR.Client.Core.xml
+D:\Обучение C#\SignalRChat\SignalRChat\SignalRChatClient\bin\Debug\Microsoft.AspNetCore.SignalR.Common.xml
+D:\Обучение C#\SignalRChat\SignalRChat\SignalRChatClient\bin\Debug\Microsoft.AspNetCore.SignalR.Protocols.Json.xml
+D:\Обучение C#\SignalRChat\SignalRChat\SignalRChatClient\bin\Debug\Microsoft.Extensions.Configuration.xml
+D:\Обучение C#\SignalRChat\SignalRChat\SignalRChatClient\bin\Debug\Microsoft.Extensions.Configuration.Abstractions.xml
+D:\Обучение C#\SignalRChat\SignalRChat\SignalRChatClient\bin\Debug\Microsoft.Extensions.Configuration.Binder.xml
+D:\Обучение C#\SignalRChat\SignalRChat\SignalRChatClient\bin\Debug\Microsoft.Extensions.DependencyInjection.xml
+D:\Обучение C#\SignalRChat\SignalRChat\SignalRChatClient\bin\Debug\Microsoft.Extensions.DependencyInjection.Abstractions.xml
+D:\Обучение C#\SignalRChat\SignalRChat\SignalRChatClient\bin\Debug\Microsoft.Extensions.Logging.xml
+D:\Обучение C#\SignalRChat\SignalRChat\SignalRChatClient\bin\Debug\Microsoft.Extensions.Logging.Abstractions.xml
+D:\Обучение C#\SignalRChat\SignalRChat\SignalRChatClient\bin\Debug\Microsoft.Extensions.Options.xml
+D:\Обучение C#\SignalRChat\SignalRChat\SignalRChatClient\bin\Debug\Microsoft.Extensions.Primitives.xml
+D:\Обучение C#\SignalRChat\SignalRChat\SignalRChatClient\bin\Debug\Newtonsoft.Json.xml
+D:\Обучение C#\SignalRChat\SignalRChat\SignalRChatClient\bin\Debug\System.Buffers.xml
+D:\Обучение C#\SignalRChat\SignalRChat\SignalRChatClient\bin\Debug\System.IO.Pipelines.xml
+D:\Обучение C#\SignalRChat\SignalRChat\SignalRChatClient\bin\Debug\System.Memory.xml
+D:\Обучение C#\SignalRChat\SignalRChat\SignalRChatClient\bin\Debug\System.Numerics.Vectors.xml
+D:\Обучение C#\SignalRChat\SignalRChat\SignalRChatClient\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+D:\Обучение C#\SignalRChat\SignalRChat\SignalRChatClient\bin\Debug\System.Threading.Channels.xml
+D:\Обучение C#\SignalRChat\SignalRChat\SignalRChatClient\bin\Debug\System.Threading.Tasks.Extensions.xml
+D:\Обучение C#\SignalRChat\SignalRChat\SignalRChatClient\obj\Debug\SignalRChatClient.exe.config
+D:\Обучение C#\SignalRChat\SignalRChat\SignalRChatClient\obj\Debug\MainWindow.g.cs
+D:\Обучение C#\SignalRChat\SignalRChat\SignalRChatClient\obj\Debug\App.g.cs
+D:\Обучение C#\SignalRChat\SignalRChat\SignalRChatClient\obj\Debug\SignalRChatClient_MarkupCompile.cache
+D:\Обучение C#\SignalRChat\SignalRChat\SignalRChatClient\obj\Debug\SignalRChatClient_MarkupCompile.lref
+D:\Обучение C#\SignalRChat\SignalRChat\SignalRChatClient\obj\Debug\MainWindow.baml
+D:\Обучение C#\SignalRChat\SignalRChat\SignalRChatClient\obj\Debug\SignalRChatClient.g.resources
+D:\Обучение C#\SignalRChat\SignalRChat\SignalRChatClient\obj\Debug\SignalRChatClient.Properties.Resources.resources
+D:\Обучение C#\SignalRChat\SignalRChat\SignalRChatClient\obj\Debug\SignalRChatClient.csproj.GenerateResource.cache
+D:\Обучение C#\SignalRChat\SignalRChat\SignalRChatClient\obj\Debug\SignalRChatClient.csproj.CoreCompileInputs.cache
+D:\Обучение C#\SignalRChat\SignalRChat\SignalRChatClient\obj\Debug\SignalRChatClient.csproj.CopyComplete
+D:\Обучение C#\SignalRChat\SignalRChat\SignalRChatClient\obj\Debug\SignalRChatClient.exe
+D:\Обучение C#\SignalRChat\SignalRChat\SignalRChatClient\obj\Debug\SignalRChatClient.pdb
