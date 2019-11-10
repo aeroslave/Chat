@@ -43,7 +43,7 @@
         {
             var isPersonExist = await _context.Persons.AnyAsync(it => it.Name == person.Name);
             if (isPersonExist)
-                throw new ChatControllerException("Пользователь с таким именем уже существует.");
+                throw new ChatControllerException("Пользователь с таким именем уже существует!");
 
             _context.Persons.Add(person);
             await _context.SaveChangesAsync();

@@ -48,7 +48,7 @@
             if (response.IsSuccessStatusCode)
                 await GetConnection(mainWindowVM);
 
-            Application.Current.Dispatcher.Invoke(() =>
+            Application.Current.Dispatcher?.Invoke(() =>
             {
                 mainWindowVM.MessageList.Add(response.IsSuccessStatusCode
                     ? $"Добро пожаловать {mainWindowVM.UserName}"
@@ -63,12 +63,12 @@
             try
             {
                 await mainWindowVM.HubConnection.StartAsync();
-                Application.Current.Dispatcher.Invoke(() =>
+                Application.Current.Dispatcher?.Invoke(() =>
                     mainWindowVM.MessageList.Add("Connection stated!"));
             }
             catch (Exception e)
             {
-                Application.Current.Dispatcher.Invoke(() =>
+                Application.Current.Dispatcher?.Invoke(() =>
                     mainWindowVM.MessageList.Add(e.Message));
             }
         }

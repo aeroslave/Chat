@@ -28,7 +28,7 @@
 
             HubConnection.On<string, string>("ReceiveMessage", (user, message) =>
             {
-                Application.Current.Dispatcher.Invoke(() =>
+                Application.Current.Dispatcher?.Invoke(() =>
                 {
                     var newMessage = $"{user} отправил сообщение: {message}";
                     MessageList.Add(newMessage);
@@ -39,7 +39,6 @@
             IsEnabled = true;
         }
 
-        public bool IsEnabled { get; set; }
         public CheckPersonCommand CheckPersonCommand { get; set; }
 
         /// <summary>
@@ -61,6 +60,8 @@
         /// Соединение с хабом.
         /// </summary>
         public HubConnection HubConnection { get; }
+
+        public bool IsEnabled { get; set; }
 
         /// <summary>
         /// Сообщение для отправки.
