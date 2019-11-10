@@ -50,8 +50,8 @@
 
         <Button Grid.Row="3" Grid.Column="0" 
                 Height="100" HorizontalAlignment="Stretch" 
-                    VerticalAlignment="Bottom" Margin="5"
-                    Content="Connection"
+                    VerticalAlignment="Bottom" Margin="6,0,4,5"
+                    Content="Соединение"
                 Command="{Binding ConnectionCommand}"
                 CommandParameter="{Binding}"
                 IsEnabled="{Binding IsEnabled}"/>
@@ -59,7 +59,7 @@
         <Button Grid.Row="3" Height="100" Grid.Column="1"
                     HorizontalAlignment="Stretch"
                     VerticalAlignment="Bottom" Margin="5"
-                    Content="Send"
+                    Content="Отправить"
                     IsDefault="True"
                     Command="{Binding SendMessageCommand}"
                     CommandParameter="{Binding}"

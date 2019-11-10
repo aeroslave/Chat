@@ -12537,11 +12537,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Обучение C#\\SignalRChat\\SignalRChat\\SignalRChat\\SignalRChat.csproj",
+      "projectUniqueName": "D:\\Обучение C#\\SignalRChat\\IPR-1.1\\SignalRChat\\SignalRChat.csproj",
       "projectName": "SignalRChat",
-      "projectPath": "D:\\Обучение C#\\SignalRChat\\SignalRChat\\SignalRChat\\SignalRChat.csproj",
+      "projectPath": "D:\\Обучение C#\\SignalRChat\\IPR-1.1\\SignalRChat\\SignalRChat.csproj",
       "packagesPath": "C:\\Users\\vskon\\.nuget\\packages\\",
-      "outputPath": "D:\\Обучение C#\\SignalRChat\\SignalRChat\\SignalRChat\\obj\\",
+      "outputPath": "D:\\Обучение C#\\SignalRChat\\IPR-1.1\\SignalRChat\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
