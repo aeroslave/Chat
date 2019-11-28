@@ -147,7 +147,7 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Commands\CheckPersonCommand.cs" />
-    <Compile Include="Commands\ConnectionCommand.cs" />
+    <Compile Include="Commands\DisconnectionCommand.cs" />
     <Compile Include="Commands\GetFromWebAPICommand.cs" />
     <Compile Include="Commands\PostToWebApiCommand.cs" />
     <Compile Include="Commands\SendMessageCommand.cs" />

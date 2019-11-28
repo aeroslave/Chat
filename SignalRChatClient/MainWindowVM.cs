@@ -4,6 +4,7 @@
     using System.ComponentModel;
     using System.Net.Http;
     using System.Runtime.CompilerServices;
+    using System.Threading.Tasks;
     using System.Windows;
 
     using Microsoft.AspNetCore.SignalR.Client;
@@ -18,7 +19,7 @@
         public MainWindowVM()
         {
             HubConnection = new HubConnectionBuilder().WithUrl("https://localhost:44340/ChatHub").Build();
-            ConnectionCommand = new ConnectionCommand();
+            DisconnectionCommand = new DisconnectionCommand();
             SendMessageCommand = new SendMessageCommand();
             GetFromWebApiCommand = new GetFromWebApiCommand();
             ShowAddPersonWindowCommand = new ShowAddPersonWindowCommand();
@@ -26,14 +27,7 @@
 
             MessageList = new ObservableCollection<string>();
 
-            HubConnection.On<string, string>("ReceiveMessage", (user, message) =>
-            {
-                Application.Current.Dispatcher?.Invoke(() =>
-                {
-                    var newMessage = $"{user} отправил сообщение: {message}";
-                    MessageList.Add(newMessage);
-                });
-            });
+            InitHubConnection();
 
             HttpClient = new HttpClient();
             IsEnabled = true;
@@ -44,7 +38,7 @@
         /// <summary>
         /// Команда для подключения.
         /// </summary>
-        public ConnectionCommand ConnectionCommand { get; set; }
+        public DisconnectionCommand DisconnectionCommand { get; set; }
 
         /// <summary>
         /// Команда получение сообщения из WebAPI
@@ -74,14 +68,14 @@
         public ObservableCollection<string> MessageList { get; set; }
 
         /// <summary>
-        /// Команда отправки сообщения из WebAPI
-        /// </summary>
-        public ShowAddPersonWindowCommand ShowAddPersonWindowCommand { get; set; }
-
-        /// <summary>
         /// Команда для отправки сообщения.
         /// </summary>
         public SendMessageCommand SendMessageCommand { get; set; }
+
+        /// <summary>
+        /// Команда отправки сообщения из WebAPI
+        /// </summary>
+        public ShowAddPersonWindowCommand ShowAddPersonWindowCommand { get; set; }
 
         /// <summary>
         /// Имя пользователя.
@@ -100,6 +94,28 @@
         protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+
+        /// <summary>
+        /// Инициализация соединения с хабом.
+        /// </summary>
+        private void InitHubConnection()
+        {
+            HubConnection.On<string, string>("ReceiveMessage", (user, message) =>
+            {
+                Application.Current.Dispatcher?.Invoke(() =>
+                {
+                    var newMessage = $"{user} отправил сообщение: {message}";
+                    MessageList.Add(newMessage);
+                });
+            });
+
+            HubConnection.Closed += error =>
+            {
+                Application.Current.Dispatcher?.Invoke(() => { MessageList.Add("Соединение потеряно"); });
+
+                return Task.CompletedTask;
+            };
         }
     }
 }

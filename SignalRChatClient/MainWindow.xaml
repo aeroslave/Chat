@@ -35,6 +35,12 @@
             <Button Content="Добавить" Margin="5" Command="{Binding ShowAddPersonWindowCommand}"
                     CommandParameter="{Binding}"
                     IsEnabled="{Binding IsEnabled}" />
+
+            <Button Margin="5"
+                    Content="Выйти"
+                    Command="{Binding DisconnectionCommand}"
+                    CommandParameter="{Binding}"
+                    IsEnabled="{Binding IsEnabled}" />
         </StackPanel>
 
         <StackPanel Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2">
@@ -48,19 +54,10 @@
                  Grid.Column="0" Grid.ColumnSpan="2"
                  ItemsSource="{Binding MessageList}" />
 
-        <Button Grid.Row="3" Grid.Column="0"
-                Height="100" HorizontalAlignment="Stretch"
-                VerticalAlignment="Bottom" Margin="6,0,4,5"
-                Content="Соединение"
-                Command="{Binding ConnectionCommand}"
-                CommandParameter="{Binding}"
-                IsEnabled="{Binding IsEnabled}" />
-
         <Button Grid.Row="3" Height="100" Grid.Column="1"
                 HorizontalAlignment="Stretch"
                 VerticalAlignment="Bottom" Margin="5"
                 Content="Отправить"
-                IsDefault="True"
                 Command="{Binding SendMessageCommand}"
                 CommandParameter="{Binding}"
                 IsEnabled="{Binding IsEnabled}" />

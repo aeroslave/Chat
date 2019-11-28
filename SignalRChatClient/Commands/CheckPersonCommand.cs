@@ -49,19 +49,22 @@
             };
 
             var jsonInString = JsonConvert.SerializeObject(person);
-            var response = await mainWindowVM.HttpClient.PutAsync(uri,
+            var responsePersonExist = await mainWindowVM.HttpClient.PutAsync(uri,
                 new StringContent(jsonInString, Encoding.UTF8, "application/json"));
-            if (response.IsSuccessStatusCode)
+
+            var responseActivity = await mainWindowVM.HttpClient.PutAsync(uri + "/isActive",
+                new StringContent(jsonInString, Encoding.UTF8, "application/json"));
+
+            if (!responseActivity.IsSuccessStatusCode && responsePersonExist.IsSuccessStatusCode)
                 await GetConnection(mainWindowVM);
+            else
+                Application.Current.Dispatcher?.Invoke(() =>
+                    mainWindowVM.MessageList.Add(!responsePersonExist.IsSuccessStatusCode
+                        ? "Пользователь с таким именем не зарегистрирован!"
+                        : "Пользователь с таким именем уже залогинился!"));
 
-            Application.Current.Dispatcher?.Invoke(() =>
-            {
-                mainWindowVM.MessageList.Add(response.IsSuccessStatusCode
-                    ? $"Добро пожаловать {mainWindowVM.UserName}"
-                    : "Пользователь с таким именем не зарегистрирован!");
 
-                mainWindowVM.IsEnabled = true;
-            });
+            Application.Current.Dispatcher?.Invoke(() => mainWindowVM.IsEnabled = true);
         }
 
         /// <summary>
@@ -74,7 +77,7 @@
             {
                 await mainWindowVM.HubConnection.StartAsync();
                 Application.Current.Dispatcher?.Invoke(() =>
-                    mainWindowVM.MessageList.Add("Соединение прошло успешно!"));
+                    mainWindowVM.MessageList.Add($"Добро пожаловать {mainWindowVM.UserName}"));
             }
             catch (Exception e)
             {

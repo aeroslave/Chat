@@ -22,7 +22,7 @@
 
             if (mainWindowVM.HubConnection.State != HubConnectionState.Connected)
             {
-                mainWindowVM.MessageList.Add("Connection is not started!");
+                mainWindowVM.MessageList.Add("Нет соединения. Необходимой залогиниться.");
                 return;
             }
 
