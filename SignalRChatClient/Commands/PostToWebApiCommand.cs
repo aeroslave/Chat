@@ -10,6 +10,7 @@
     using Newtonsoft.Json;
 
     using SignalRChatClient.Models;
+    using SignalRChatClient.VMs;
 
     /// <summary>
     /// Команда отправки сообщения.
@@ -25,47 +26,50 @@
 
         public void Execute(object parameter)
         {
-            if (!(parameter is MainWindowVM mainWindowVM))
+            if (!(parameter is AddPersonWindowVM addPersonWindowVM))
                 return;
-            mainWindowVM.IsEnabled = false;
-            Task.Run(() => PostMessageAsync(mainWindowVM));
+            addPersonWindowVM.IsEnabled = false;
+            Task.Run(() => PostMessageAsync(addPersonWindowVM));
         }
 
         /// <summary>
         /// Отправить запрос.
         /// </summary>
-        /// <param name="mainWindowVM"> Вью-модель окна.</param>
-        private static async Task PostMessageAsync(MainWindowVM mainWindowVM)
+        /// <param name="addPersonWindowVM"> Вью-модель окна.</param>
+        private static async Task PostMessageAsync(AddPersonWindowVM addPersonWindowVM)
         {
             var person = new Person
             {
-                Name = mainWindowVM.UserName,
-                Password = "pass"
+                Name = addPersonWindowVM.Name,
+                BirthDate = addPersonWindowVM.BirthDate,
+                IsActive = false
             };
 
             var jsonInString = JsonConvert.SerializeObject(person);
 
             const string uri = "https://localhost:44340/api/chat";
-            var isPersonExsist = await mainWindowVM.HttpClient.PutAsync(uri, new StringContent(jsonInString, Encoding.UTF8, "application/json"));
+            var isPersonExsist = await addPersonWindowVM.HttpClient.PutAsync(uri,
+                new StringContent(jsonInString, Encoding.UTF8, "application/json"));
 
             if (isPersonExsist.IsSuccessStatusCode)
-            { Application.Current.Dispatcher.Invoke(() =>
+            {
+                Application.Current.Dispatcher.Invoke(() =>
                 {
-                    mainWindowVM.MessageList.Add($"Пользователь с именем {person.Name} уже существует");
-                    mainWindowVM.IsEnabled = true;
+                    MessageBox.Show($"Пользователь с именем {person.Name} уже существует");
+                    addPersonWindowVM.IsEnabled = true;
                 });
 
                 return;
             }
 
-            var response = await mainWindowVM.HttpClient.PostAsync(uri,
+            var response = await addPersonWindowVM.HttpClient.PostAsync(uri,
                 new StringContent(jsonInString, Encoding.UTF8, "application/json"));
 
             Application.Current.Dispatcher.Invoke(() =>
             {
                 if (response.IsSuccessStatusCode)
-                    mainWindowVM.MessageList.Add($"Пользователь {person.Name} добавлен");
-                mainWindowVM.IsEnabled = true;
+                    MessageBox.Show($"Пользователь {person.Name} добавлен");
+                addPersonWindowVM.IsEnabled = true;
             });
         }
     }

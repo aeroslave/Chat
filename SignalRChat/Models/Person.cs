@@ -1,5 +1,7 @@
 ﻿namespace SignalRChat.Models
 {
+    using System;
+
     /// <summary>
     /// Модель персонажа.
     /// </summary>
@@ -16,8 +18,13 @@
         public string Name { get; set; }
 
         /// <summary>
-        /// Пароль.
+        /// Дата рождения.
         /// </summary>
-        public string Password { get; set; }
+        public DateTime BirthDate { get; set; }
+
+        /// <summary>
+        /// Флаг активности пользователя.
+        /// </summary>
+        public bool IsActive { get; set; }
     }
 }

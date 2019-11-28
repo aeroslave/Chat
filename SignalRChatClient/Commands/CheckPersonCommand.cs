@@ -23,6 +23,9 @@
 
         public event EventHandler CanExecuteChanged;
 
+        /// <summary>
+        /// Выполнить.
+        /// </summary>
         public void Execute(object parameter)
         {
             if (!(parameter is MainWindowVM mainWindowVM))
@@ -32,14 +35,17 @@
             Task.Run(() => CheckPersonAsync(mainWindowVM));
         }
 
+        /// <summary>
+        /// Проверить пользователя.
+        /// </summary>
+        /// <param name="mainWindowVM">Вью-модель главного окна.</param>
         public async Task CheckPersonAsync(MainWindowVM mainWindowVM)
         {
             const string uri = "https://localhost:44340/api/chat";
 
             var person = new Person
             {
-                Name = mainWindowVM.UserName,
-                Password = "pass"
+                Name = mainWindowVM.UserName
             };
 
             var jsonInString = JsonConvert.SerializeObject(person);
@@ -58,13 +64,17 @@
             });
         }
 
+        /// <summary>
+        /// Открывает соединение с хабом.
+        /// </summary>
+        /// <param name="mainWindowVM">Вью-модель главного окна.</param>
         public async Task GetConnection(MainWindowVM mainWindowVM)
         {
             try
             {
                 await mainWindowVM.HubConnection.StartAsync();
                 Application.Current.Dispatcher?.Invoke(() =>
-                    mainWindowVM.MessageList.Add("Connection stated!"));
+                    mainWindowVM.MessageList.Add("Соединение прошло успешно!"));
             }
             catch (Exception e)
             {

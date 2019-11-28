@@ -41,9 +41,9 @@
         [HttpPost]
         public async Task<long> Post(Person person)
         {
-            var isPersonExist = await _context.Persons.AnyAsync(it => it.Name == person.Name);
+            var isPersonExist = await _context.Persons.AnyAsync(it => it.Name == person.Name && it.BirthDate == person.BirthDate);
             if (isPersonExist)
-                throw new ChatControllerException("Пользователь с таким именем уже существует!");
+                throw new ChatControllerException("Такой пользователь уже создан!");
 
             _context.Persons.Add(person);
             await _context.SaveChangesAsync();

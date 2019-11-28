@@ -1,0 +1,38 @@
+﻿<Window x:Class="SignalRChatClient.Windows.AddPersonWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SignalRChatClient.Windows"
+        xmlns:vMs="clr-namespace:SignalRChatClient.VMs"
+        mc:Ignorable="d"
+        Background="LightBlue"
+        Title="Добавить пользователя" Height="203.289" Width="600"
+        d:DataContext="{d:DesignInstance Type=vMs:AddPersonWindowVM, IsDesignTimeCreatable=True}">
+    <Grid Margin="5">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <Label Content="ФИО:" Margin="5" />
+        <TextBox Grid.Row="1"
+                 Text="{Binding Name}" />
+
+        <Label Content="Дата рождения:" Grid.Row="2" />
+        <DatePicker Grid.Row="3"
+                    SelectedDate="{Binding BirthDate}" />
+
+        <Button Grid.Row="4"
+                VerticalAlignment="Bottom"
+                Margin="5"
+                Command="{Binding PostToWebApiCommand}"
+                CommandParameter="{Binding}"
+                HorizontalAlignment="Right"
+                Content="Добавить"
+                IsDefault="True" />
+    </Grid>
+</Window>

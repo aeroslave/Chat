@@ -21,7 +21,7 @@
             ConnectionCommand = new ConnectionCommand();
             SendMessageCommand = new SendMessageCommand();
             GetFromWebApiCommand = new GetFromWebApiCommand();
-            PostToWebApiCommand = new PostToWebApiCommand();
+            ShowAddPersonWindowCommand = new ShowAddPersonWindowCommand();
             CheckPersonCommand = new CheckPersonCommand();
 
             MessageList = new ObservableCollection<string>();
@@ -76,7 +76,7 @@
         /// <summary>
         /// Команда отправки сообщения из WebAPI
         /// </summary>
-        public PostToWebApiCommand PostToWebApiCommand { get; set; }
+        public ShowAddPersonWindowCommand ShowAddPersonWindowCommand { get; set; }
 
         /// <summary>
         /// Команда для отправки сообщения.
