@@ -1,7 +1,9 @@
 ﻿namespace SignalRChatClient
 {
+    using System.Collections.Generic;
     using System.Collections.ObjectModel;
     using System.ComponentModel;
+    using System.Linq;
     using System.Net.Http;
     using System.Runtime.CompilerServices;
     using System.Threading.Tasks;
@@ -9,10 +11,15 @@
 
     using Microsoft.AspNetCore.SignalR.Client;
 
+    using Newtonsoft.Json;
+
     using SignalRChatClient.Commands;
+    using SignalRChatClient.Models;
 
     public class MainWindowVM : INotifyPropertyChanged
     {
+        private ObservableCollection<string> _activeUsers;
+
         /// <summary>
         /// Конструктор.
         /// </summary>
@@ -30,7 +37,22 @@
             InitHubConnection();
 
             HttpClient = new HttpClient();
+
+            GetPersons();
             IsEnabled = true;
+        }
+
+        /// <summary>
+        /// Список участников.
+        /// </summary>
+        public ObservableCollection<string> ActiveUsers
+        {
+            get => _activeUsers;
+            set
+            {
+                _activeUsers = value;
+                OnPropertyChanged();
+            }
         }
 
         public CheckPersonCommand CheckPersonCommand { get; set; }
@@ -97,6 +119,31 @@
         }
 
         /// <summary>
+        /// Получить список пользователей.
+        /// </summary>
+        private void GetPersons()
+        {
+            Task.Run(GetPersonsAsync);
+        }
+
+        /// <summary>
+        /// Получить список пользователей асинхронно.
+        /// </summary>
+        private async Task GetPersonsAsync()
+        {
+            const string uri = "https://localhost:44340/api/chat";
+
+            var response = await HttpClient.GetAsync(uri);
+            var responseResult = await response.Content.ReadAsStringAsync();
+
+            var persons = JsonConvert.DeserializeObject<List<Person>>(responseResult);
+            ActiveUsers =
+                new ObservableCollection<string>(persons.Where(person => person.IsActive).Select(it => it.Name));
+
+            Application.Current.Dispatcher?.Invoke(() => IsEnabled = true);
+        }
+
+        /// <summary>
         /// Инициализация соединения с хабом.
         /// </summary>
         private void InitHubConnection()
@@ -110,12 +157,25 @@
                 });
             });
 
+            HubConnection.On<string, bool>("UpdateUsers", (user, isActive) =>
+            {
+                Application.Current.Dispatcher?.Invoke(() =>
+                {
+                    if (isActive)
+                        ActiveUsers.Add(user);
+                    else
+                        ActiveUsers.Remove(user);
+                });
+            });
+
             HubConnection.Closed += error =>
             {
                 Application.Current.Dispatcher?.Invoke(() => { MessageList.Add("Соединение потеряно"); });
 
                 return Task.CompletedTask;
             };
+
+            Task.Run(async () => await HubConnection.StartAsync());
         }
     }
 }

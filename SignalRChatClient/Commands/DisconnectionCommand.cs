@@ -7,6 +7,8 @@
     using System.Windows;
     using System.Windows.Input;
 
+    using Microsoft.AspNetCore.SignalR.Client;
+
     using Newtonsoft.Json;
 
     using SignalRChatClient.Models;
@@ -51,8 +53,7 @@
             var jsonInString = JsonConvert.SerializeObject(person);
             var response = await mainWindowVM.HttpClient.PutAsync(uri,
                 new StringContent(jsonInString, Encoding.UTF8, "application/json"));
-
-            await mainWindowVM.HubConnection.StopAsync();
+            await mainWindowVM.HubConnection.InvokeAsync("UpdateUsersActivity", mainWindowVM.UserName, false);
 
             Application.Current.Dispatcher?.Invoke(() =>
             {

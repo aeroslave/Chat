@@ -15,5 +15,13 @@
         {
             await Clients.All.SendAsync("ReceiveMessage", user, message);
         }
+
+        /// <summary>
+        /// Обновить список активных пользователей.
+        /// </summary>
+        public async Task UpdateUsersActivity(string user, bool isActive)
+        {
+            await Clients.All.SendAsync("UpdateUsers", user, isActive);
+        }
     }
 }

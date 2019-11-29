@@ -11,9 +11,9 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
             <RowDefinition Height="*" />
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition />
@@ -50,16 +50,20 @@
                      IsEnabled="{Binding IsEnabled}" />
         </StackPanel>
 
-        <ListBox Margin="5" Grid.Row="2"
-                 Grid.Column="0" Grid.ColumnSpan="2"
-                 ItemsSource="{Binding MessageList}" />
-
-        <Button Grid.Row="3" Height="100" Grid.Column="1"
-                HorizontalAlignment="Stretch"
-                VerticalAlignment="Bottom" Margin="5"
+        <Button Grid.Row="2" Grid.Column="0"
+                HorizontalAlignment="Left"
+                Margin="5"
+                VerticalAlignment="Bottom"
                 Content="Отправить"
                 Command="{Binding SendMessageCommand}"
                 CommandParameter="{Binding}"
                 IsEnabled="{Binding IsEnabled}" />
+
+        <ListBox Margin="5" Grid.Row="3"
+                 Grid.Column="0" Grid.ColumnSpan="2"
+                 ItemsSource="{Binding MessageList}" />
+
+        <ListBox Grid.Row="4" Grid.ColumnSpan="2" Grid.Column="0"
+                 ItemsSource="{Binding ActiveUsers}" />
     </Grid>
 </Window>

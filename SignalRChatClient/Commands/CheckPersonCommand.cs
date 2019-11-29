@@ -7,6 +7,8 @@
     using System.Windows;
     using System.Windows.Input;
 
+    using Microsoft.AspNetCore.SignalR.Client;
+
     using Newtonsoft.Json;
 
     using SignalRChatClient.Models;
@@ -16,6 +18,11 @@
     /// </summary>
     public class CheckPersonCommand : ICommand
     {
+        /// <summary>
+        /// Адрес.
+        /// </summary>
+        const string _uri = "https://localhost:44340/api/chat";
+
         public bool CanExecute(object parameter)
         {
             return true;
@@ -41,18 +48,16 @@
         /// <param name="mainWindowVM">Вью-модель главного окна.</param>
         public async Task CheckPersonAsync(MainWindowVM mainWindowVM)
         {
-            const string uri = "https://localhost:44340/api/chat";
-
             var person = new Person
             {
                 Name = mainWindowVM.UserName
             };
 
             var jsonInString = JsonConvert.SerializeObject(person);
-            var responsePersonExist = await mainWindowVM.HttpClient.PutAsync(uri,
+            var responsePersonExist = await mainWindowVM.HttpClient.PutAsync(_uri,
                 new StringContent(jsonInString, Encoding.UTF8, "application/json"));
 
-            var responseActivity = await mainWindowVM.HttpClient.PutAsync(uri + "/isActive",
+            var responseActivity = await mainWindowVM.HttpClient.PutAsync(_uri + "/isActive",
                 new StringContent(jsonInString, Encoding.UTF8, "application/json"));
 
             if (!responseActivity.IsSuccessStatusCode && responsePersonExist.IsSuccessStatusCode)
@@ -75,7 +80,7 @@
         {
             try
             {
-                await mainWindowVM.HubConnection.StartAsync();
+                await mainWindowVM.HubConnection.InvokeAsync("UpdateUsersActivity", mainWindowVM.UserName, true);
                 Application.Current.Dispatcher?.Invoke(() =>
                     mainWindowVM.MessageList.Add($"Добро пожаловать {mainWindowVM.UserName}"));
             }
