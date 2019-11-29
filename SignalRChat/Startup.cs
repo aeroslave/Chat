@@ -35,8 +35,6 @@ namespace SignalRChat
 
             app.UseHttpsRedirection();
             app.UseStaticFiles();
-            app.UseCookiePolicy();
-            app.UseCors("CorsPolicy");
 
             app.UseMvc(routes => routes.MapRoute(
                 "default",
@@ -63,14 +61,6 @@ namespace SignalRChat
             services.AddRouting();
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
-
-            services.AddCors(options => options.AddPolicy("CorsPolicy",
-                builder =>
-                {
-                    builder.AllowAnyMethod().AllowAnyHeader()
-                        .WithOrigins("http://localhost:53353")
-                        .AllowCredentials();
-                }));
 
             services.AddSignalR();
         }
