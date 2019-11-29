@@ -55,6 +55,9 @@
             }
         }
 
+        /// <summary>
+        /// Проверить пользователя.
+        /// </summary>
         public CheckPersonCommand CheckPersonCommand { get; set; }
 
         /// <summary>
@@ -77,6 +80,9 @@
         /// </summary>
         public HubConnection HubConnection { get; }
 
+        /// <summary>
+        /// Флаг активности элементов управления.
+        /// </summary>
         public bool IsEnabled { get; set; }
 
         /// <summary>

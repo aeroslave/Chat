@@ -1,7 +1,6 @@
 ﻿namespace SignalRChat.Controllers
 {
     using System.Collections.Generic;
-    using System.Linq;
     using System.Threading.Tasks;
 
     using Microsoft.AspNetCore.Mvc;
@@ -18,16 +17,6 @@
         public ChatController(UsersContext context)
         {
             _context = context;
-        }
-
-        /// <summary>
-        /// Получить список пользователей.
-        /// </summary>
-        /// <returns></returns>
-        [HttpGet]
-        public async Task<List<Person>> GetPersons()
-        {
-            return await _context.Persons.ToListAsync();
         }
 
         /// <summary>
@@ -64,6 +53,16 @@
                 return Ok();
 
             return NotFound();
+        }
+
+        /// <summary>
+        /// Получить список пользователей.
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet]
+        public async Task<List<Person>> GetPersons()
+        {
+            return await _context.Persons.ToListAsync();
         }
 
         /// <summary>

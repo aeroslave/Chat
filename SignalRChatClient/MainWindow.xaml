@@ -63,7 +63,9 @@
                  Grid.Column="0" Grid.ColumnSpan="2"
                  ItemsSource="{Binding MessageList}" />
 
-        <ListBox Grid.Row="4" Grid.ColumnSpan="2" Grid.Column="0"
-                 ItemsSource="{Binding ActiveUsers}" />
+        <StackPanel Grid.Row="4" Grid.ColumnSpan="2" Grid.Column="0">
+            <Label Content="Список активных пользоватлей" />
+            <ListBox ItemsSource="{Binding ActiveUsers}" />
+        </StackPanel>
     </Grid>
 </Window>

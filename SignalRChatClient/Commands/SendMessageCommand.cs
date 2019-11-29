@@ -15,6 +15,9 @@
             return true;
         }
 
+        /// <summary>
+        /// Выполнить.
+        /// </summary>
         public void Execute(object parameter)
         {
             if(!(parameter is MainWindowVM mainWindowVM)) 
