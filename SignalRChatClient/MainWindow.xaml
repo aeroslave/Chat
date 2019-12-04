@@ -21,7 +21,7 @@
         </Grid.ColumnDefinitions>
 
         <StackPanel Grid.Row="0">
-            <Label Content="Login:" />
+            <Label Content="Логин:" />
             <TextBox Margin="5" VerticalAlignment="Stretch"
                      Text="{Binding UserName}" />
         </StackPanel>
@@ -44,7 +44,7 @@
         </StackPanel>
 
         <StackPanel Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2">
-            <Label Content="Message:" />
+            <Label Content="Сообщение:" />
             <TextBox Margin="5"
                      Text="{Binding Message}"
                      IsEnabled="{Binding IsEnabled}" />

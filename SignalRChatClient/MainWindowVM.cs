@@ -3,6 +3,7 @@
     using System.Collections.Generic;
     using System.Collections.ObjectModel;
     using System.ComponentModel;
+    using System.IO;
     using System.Linq;
     using System.Net.Http;
     using System.Runtime.CompilerServices;
@@ -25,6 +26,10 @@
         /// </summary>
         public MainWindowVM()
         {
+            var path = System.Environment.CurrentDirectory;
+            var addressString = File.ReadAllText(path + "\\address_config.json");
+            var address = JsonConvert.DeserializeObject(File.ReadAllText(path + "\\address_config.json"));
+
             HubConnection = new HubConnectionBuilder().WithUrl("https://localhost:44340/ChatHub").Build();
             DisconnectionCommand = new DisconnectionCommand();
             SendMessageCommand = new SendMessageCommand();
