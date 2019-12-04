@@ -148,7 +148,6 @@
     </Compile>
     <Compile Include="Commands\CheckPersonCommand.cs" />
     <Compile Include="Commands\DisconnectionCommand.cs" />
-    <Compile Include="Commands\GetFromWebAPICommand.cs" />
     <Compile Include="Commands\PostToWebApiCommand.cs" />
     <Compile Include="Commands\SendMessageCommand.cs" />
     <Compile Include="MainWindow.xaml.cs">
@@ -180,7 +179,6 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <None Include="address_config.json" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

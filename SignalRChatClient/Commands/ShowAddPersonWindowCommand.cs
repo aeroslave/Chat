@@ -24,7 +24,7 @@
             if (!(parameter is MainWindowVM mainWindowVM))
                 return;
 
-            var addPersonWindowVM = new AddPersonWindowVM(mainWindowVM.HttpClient);
+            var addPersonWindowVM = new AddPersonWindowVM(mainWindowVM.HttpClient, mainWindowVM.WebApiAddress);
             var addPersonWindow = new AddPersonWindow{DataContext = addPersonWindowVM};
             addPersonWindow.ShowDialog();
         }

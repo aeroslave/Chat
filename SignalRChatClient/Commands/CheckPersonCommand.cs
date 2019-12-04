@@ -18,11 +18,6 @@
     /// </summary>
     public class CheckPersonCommand : ICommand
     {
-        /// <summary>
-        /// Адрес.
-        /// </summary>
-        const string _uri = "https://localhost:44340/api/chat";
-
         public bool CanExecute(object parameter)
         {
             return true;
@@ -54,10 +49,10 @@
             };
 
             var jsonInString = JsonConvert.SerializeObject(person);
-            var responsePersonExist = await mainWindowVM.HttpClient.PutAsync(_uri,
+            var responsePersonExist = await mainWindowVM.HttpClient.PutAsync(mainWindowVM.WebApiAddress,
                 new StringContent(jsonInString, Encoding.UTF8, "application/json"));
 
-            var responseActivity = await mainWindowVM.HttpClient.PutAsync(_uri + "/isActive",
+            var responseActivity = await mainWindowVM.HttpClient.PutAsync(mainWindowVM.WebApiAddress + "/isActive",
                 new StringContent(jsonInString, Encoding.UTF8, "application/json"));
 
             if (!responseActivity.IsSuccessStatusCode && responsePersonExist.IsSuccessStatusCode)

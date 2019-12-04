@@ -43,7 +43,7 @@
         /// <param name="mainWindowVM">Вью-модель главного окна.</param>
         public async Task LogOut(MainWindowVM mainWindowVM)
         {
-            const string uri = "https://localhost:44340/api/chat/setactivityfalse";
+            var uri = $"{mainWindowVM.WebApiAddress}/setactivityfalse";
 
             var person = new Person
             {

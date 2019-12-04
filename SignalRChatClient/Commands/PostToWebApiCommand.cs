@@ -47,8 +47,7 @@
 
             var jsonInString = JsonConvert.SerializeObject(person);
 
-            const string uri = "https://localhost:44340/api/chat";
-            var isPersonExsist = await addPersonWindowVM.HttpClient.PutAsync(uri,
+            var isPersonExsist = await addPersonWindowVM.HttpClient.PutAsync(addPersonWindowVM.WebApiAddress,
                 new StringContent(jsonInString, Encoding.UTF8, "application/json"));
 
             if (isPersonExsist.IsSuccessStatusCode)
@@ -62,7 +61,7 @@
                 return;
             }
 
-            var response = await addPersonWindowVM.HttpClient.PostAsync(uri,
+            var response = await addPersonWindowVM.HttpClient.PostAsync(addPersonWindowVM.WebApiAddress,
                 new StringContent(jsonInString, Encoding.UTF8, "application/json"));
 
             Application.Current.Dispatcher.Invoke(() =>

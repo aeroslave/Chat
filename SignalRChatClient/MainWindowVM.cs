@@ -7,6 +7,7 @@
     using System.Linq;
     using System.Net.Http;
     using System.Runtime.CompilerServices;
+    using System.Text;
     using System.Threading.Tasks;
     using System.Windows;
 
@@ -22,18 +23,27 @@
         private ObservableCollection<string> _activeUsers;
 
         /// <summary>
+        /// Адрес.
+        /// </summary>
+        public string Address { get;}
+
+        /// <summary>
+        /// Адрес веб апи.
+        /// </summary>
+        public string WebApiAddress => Address + "/api/chat";
+
+        /// <summary>
         /// Конструктор.
         /// </summary>
         public MainWindowVM()
         {
             var path = System.Environment.CurrentDirectory;
-            var addressString = File.ReadAllText(path + "\\address_config.json");
-            var address = JsonConvert.DeserializeObject(File.ReadAllText(path + "\\address_config.json"));
+            Address = File.ReadAllText(path + "\\address_config.json");
 
-            HubConnection = new HubConnectionBuilder().WithUrl("https://localhost:44340/ChatHub").Build();
+            HubConnection = new HubConnectionBuilder().WithUrl(Address + "/ChatHub").Build();
+
             DisconnectionCommand = new DisconnectionCommand();
             SendMessageCommand = new SendMessageCommand();
-            GetFromWebApiCommand = new GetFromWebApiCommand();
             ShowAddPersonWindowCommand = new ShowAddPersonWindowCommand();
             CheckPersonCommand = new CheckPersonCommand();
 
@@ -69,11 +79,6 @@
         /// Команда для подключения.
         /// </summary>
         public DisconnectionCommand DisconnectionCommand { get; set; }
-
-        /// <summary>
-        /// Команда получение сообщения из WebAPI
-        /// </summary>
-        public GetFromWebApiCommand GetFromWebApiCommand { get; set; }
 
         /// <summary>
         /// Клиент Http.
@@ -142,7 +147,7 @@
         /// </summary>
         private async Task GetPersonsAsync()
         {
-            const string uri = "https://localhost:44340/api/chat";
+            var uri = $"{Address}/api/chat";
 
             var response = await HttpClient.GetAsync(uri);
             var responseResult = await response.Content.ReadAsStringAsync();

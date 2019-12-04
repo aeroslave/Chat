@@ -15,10 +15,16 @@
         private bool _isEnabled;
 
         /// <summary>
+        /// Адрес вебАпи.
+        /// </summary>
+        public string WebApiAddress { get;}
+
+        /// <summary>
         /// Вью-модель окна добавления нового пользователя.
         /// </summary>
-        public AddPersonWindowVM(HttpClient httpClient)
+        public AddPersonWindowVM(HttpClient httpClient, string webApiAddress)
         {
+            WebApiAddress = webApiAddress;
             HttpClient = httpClient;
             PostToWebApiCommand = new PostToWebApiCommand();
         }
