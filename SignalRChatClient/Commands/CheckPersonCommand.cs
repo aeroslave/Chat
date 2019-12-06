@@ -41,7 +41,7 @@
         /// Проверить пользователя.
         /// </summary>
         /// <param name="mainWindowVM">Вью-модель главного окна.</param>
-        public async Task CheckPersonAsync(MainWindowVM mainWindowVM)
+        private static async Task CheckPersonAsync(MainWindowVM mainWindowVM)
         {
             var person = new Person
             {
@@ -71,7 +71,7 @@
         /// Открывает соединение с хабом.
         /// </summary>
         /// <param name="mainWindowVM">Вью-модель главного окна.</param>
-        public async Task GetConnection(MainWindowVM mainWindowVM)
+        private static async Task GetConnection(MainWindowVM mainWindowVM)
         {
             try
             {

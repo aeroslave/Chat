@@ -14,6 +14,7 @@
             <RowDefinition Height="Auto" />
             <RowDefinition Height="*" />
             <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition />
@@ -67,5 +68,11 @@
             <Label Content="Список активных пользоватлей" />
             <ListBox ItemsSource="{Binding ActiveUsers}" />
         </StackPanel>
+        
+        <Button Grid.Row="5" Grid.ColumnSpan="2" Grid.Column="0"
+                Content="Подключиться" Margin="5"
+                IsEnabled="{Binding NeedGetConnection}"
+                Command="{Binding GetConnectionCommand}"
+                CommandParameter="{Binding}"/>
     </Grid>
 </Window>

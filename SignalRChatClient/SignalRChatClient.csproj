@@ -132,8 +132,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Commands\GetConnectionCommand.cs" />
     <Compile Include="Commands\ShowAddPersonWindowCommand.cs" />
+    <Compile Include="Models\ConnectionConfig.cs" />
     <Compile Include="Properties\Annotations.cs" />
+    <Compile Include="Utilites\ConnectionUtils.cs" />
     <Compile Include="VMs\AddPersonWindowVM.cs" />
     <Compile Include="Windows\AddPersonWindow.xaml.cs">
       <DependentUpon>AddPersonWindow.xaml</DependentUpon>

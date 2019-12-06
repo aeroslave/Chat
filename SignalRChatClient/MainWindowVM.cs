@@ -1,5 +1,6 @@
 ﻿namespace SignalRChatClient
 {
+    using System;
     using System.Collections.Generic;
     using System.Collections.ObjectModel;
     using System.ComponentModel;
@@ -7,7 +8,6 @@
     using System.Linq;
     using System.Net.Http;
     using System.Runtime.CompilerServices;
-    using System.Text;
     using System.Threading.Tasks;
     using System.Windows;
 
@@ -17,44 +17,37 @@
 
     using SignalRChatClient.Commands;
     using SignalRChatClient.Models;
+    using SignalRChatClient.Utilites;
 
     public class MainWindowVM : INotifyPropertyChanged
     {
         private ObservableCollection<string> _activeUsers;
-
-        /// <summary>
-        /// Адрес.
-        /// </summary>
-        public string Address { get;}
-
-        /// <summary>
-        /// Адрес веб апи.
-        /// </summary>
-        public string WebApiAddress => Address + "/api/chat";
+        private bool _isEnabled;
+        private bool _needGetConnection;
 
         /// <summary>
         /// Конструктор.
         /// </summary>
         public MainWindowVM()
         {
-            var path = System.Environment.CurrentDirectory;
-            Address = File.ReadAllText(path + "\\address_config.json");
+            MessageList = new ObservableCollection<string>();
+            Address = ConnectionUtils.GetAddressConnection();
+            NeedGetConnection = true;
+            //HubConnection = new HubConnectionBuilder().WithUrl(Address + "/ChatHub").Build();
 
-            HubConnection = new HubConnectionBuilder().WithUrl(Address + "/ChatHub").Build();
+            ConnectionUtils.InitHubConnection(this);
 
+            GetConnectionCommand = new GetConnectionCommand();
             DisconnectionCommand = new DisconnectionCommand();
             SendMessageCommand = new SendMessageCommand();
             ShowAddPersonWindowCommand = new ShowAddPersonWindowCommand();
             CheckPersonCommand = new CheckPersonCommand();
 
-            MessageList = new ObservableCollection<string>();
-
-            InitHubConnection();
+            //InitHubConnection();
 
             HttpClient = new HttpClient();
 
             GetPersons();
-            IsEnabled = true;
         }
 
         /// <summary>
@@ -71,6 +64,11 @@
         }
 
         /// <summary>
+        /// Адрес.
+        /// </summary>
+        private string Address { get; }
+
+        /// <summary>
         /// Проверить пользователя.
         /// </summary>
         public CheckPersonCommand CheckPersonCommand { get; set; }
@@ -81,6 +79,11 @@
         public DisconnectionCommand DisconnectionCommand { get; set; }
 
         /// <summary>
+        /// Команда получения соединения.
+        /// </summary>
+        public GetConnectionCommand GetConnectionCommand { get; set; }
+
+        /// <summary>
         /// Клиент Http.
         /// </summary>
         public HttpClient HttpClient { get; }
@@ -88,12 +91,20 @@
         /// <summary>
         /// Соединение с хабом.
         /// </summary>
-        public HubConnection HubConnection { get; }
+        public HubConnection HubConnection { get; set; }
 
         /// <summary>
         /// Флаг активности элементов управления.
         /// </summary>
-        public bool IsEnabled { get; set; }
+        public bool IsEnabled
+        {
+            get => _isEnabled;
+            set
+            {
+                _isEnabled = value;
+                OnPropertyChanged();
+            }
+        }
 
         /// <summary>
         /// Сообщение для отправки.
@@ -104,6 +115,19 @@
         /// Список сообщений.
         /// </summary>
         public ObservableCollection<string> MessageList { get; set; }
+
+        /// <summary>
+        /// Флаг необходимости получения подключения.
+        /// </summary>
+        public bool NeedGetConnection
+        {
+            get => _needGetConnection;
+            set
+            {
+                _needGetConnection = value;
+                OnPropertyChanged();
+            }
+        }
 
         /// <summary>
         /// Команда для отправки сообщения.
@@ -121,6 +145,11 @@
         public string UserName { get; set; }
 
         /// <summary>
+        /// Адрес веб апи.
+        /// </summary>
+        public string WebApiAddress => Address + "/api/chat";
+
+        /// <summary>
         /// Событие, генерируемое при изменении свойств.
         /// </summary>
         public event PropertyChangedEventHandler PropertyChanged;
@@ -132,6 +161,19 @@
         protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+
+        /// <summary>
+        /// Получить адрес подключения.
+        /// </summary>
+        /// <returns>Адрес подключения.</returns>
+        private static string GetAddressConnection()
+        {
+            var path = Environment.CurrentDirectory;
+            var configTextFromFile = File.ReadAllText(path + "\\address_config.json");
+            var connectionConfig = JsonConvert.DeserializeObject<ConnectionConfig>(configTextFromFile);
+
+            return connectionConfig.Address;
         }
 
         /// <summary>
@@ -153,6 +195,7 @@
             var responseResult = await response.Content.ReadAsStringAsync();
 
             var persons = JsonConvert.DeserializeObject<List<Person>>(responseResult);
+
             ActiveUsers =
                 new ObservableCollection<string>(persons.Where(person => person.IsActive).Select(it => it.Name));
 
@@ -186,12 +229,27 @@
 
             HubConnection.Closed += error =>
             {
-                Application.Current.Dispatcher?.Invoke(() => { MessageList.Add("Соединение потеряно"); });
+                Application.Current.Dispatcher?.Invoke(() =>
+                {
+                    MessageList.Add("Соединение потеряно");
+                    IsEnabled = false;
+                });
 
                 return Task.CompletedTask;
             };
 
-            Task.Run(async () => await HubConnection.StartAsync());
+            Task.Run(async () =>
+            {
+                try
+                {
+                    await HubConnection.StartAsync();
+                    Application.Current.Dispatcher?.Invoke(() => IsEnabled = true);
+                }
+                catch (Exception)
+                {
+                    Application.Current.Dispatcher?.Invoke(() => MessageList.Add("Не удалось соединиться с сервером"));
+                }
+            });
         }
     }
 }
