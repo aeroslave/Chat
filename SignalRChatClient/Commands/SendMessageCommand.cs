@@ -1,6 +1,7 @@
 ﻿namespace SignalRChatClient.Commands
 {
     using System;
+    using System.Linq;
     using System.Windows.Input;
 
     using Microsoft.AspNetCore.SignalR.Client;
@@ -23,9 +24,9 @@
             if(!(parameter is MainWindowVM mainWindowVM)) 
                 return;
 
-            if (mainWindowVM.HubConnection.State != HubConnectionState.Connected)
+            if (mainWindowVM.ActiveUsers.All(user => user != mainWindowVM.UserName))
             {
-                mainWindowVM.MessageList.Add("Нет соединения. Необходимой залогиниться.");
+                mainWindowVM.MessageList.Add("Необходимой залогиниться.");
                 return;
             }
 
