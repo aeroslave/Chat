@@ -1,5 +1,7 @@
 namespace SignalRChat
 {
+    using System;
+
     using Microsoft.AspNetCore.Builder;
     using Microsoft.AspNetCore.Hosting;
     using Microsoft.AspNetCore.Http;
@@ -21,7 +23,7 @@ namespace SignalRChat
         public IConfiguration Configuration { get; }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env, IServiceProvider serviceProvider)
         {
             if (env.IsDevelopment())
             {
@@ -41,6 +43,11 @@ namespace SignalRChat
                 "{controller}/{action}/{id?}"));
 
             app.UseSignalR(routes => routes.MapHub<ChatHub>("/chatHub"));
+
+            using (var usersContext = serviceProvider.GetService<UsersContext>())
+            {
+                usersContext.Database.Migrate();
+            }
         }
 
         // This method gets called by the runtime. Use this method to add services to the container.
