@@ -86,7 +86,7 @@
         /// <summary>
         /// Разлогинить пользователя.
         /// </summary>
-        /// <param name="userName">Пользователь.</param>
+        /// <param name="person">Пользователь.</param>
         [Route("setactivityfalse")]
         [HttpPut]
         public async Task<IActionResult> SetPersonActivity(Person person)

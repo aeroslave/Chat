@@ -1,38 +1,23 @@
 ﻿namespace SignalRChatClient.Commands
 {
-    using System;
-    using System.Net.Http;
-    using System.Text;
     using System.Threading.Tasks;
     using System.Windows;
-    using System.Windows.Input;
 
     using Microsoft.AspNetCore.SignalR.Client;
 
-    using Newtonsoft.Json;
+    using Ninject;
 
+    using SignalRChatClient.Interfaces;
     using SignalRChatClient.Models;
 
     /// <summary>
     /// Команда соединения с хабом.
     /// </summary>
-    public class DisconnectionCommand : ICommand
+    public class DisconnectionCommand : TypedBaseCommand<MainWindowVM>
     {
-        public bool CanExecute(object parameter)
+        /// <inheritdoc />
+        public override void Execute(MainWindowVM mainWindowVM)
         {
-            return true;
-        }
-
-        public event EventHandler CanExecuteChanged;
-
-        /// <summary>
-        /// Выполнить.
-        /// </summary>
-        public void Execute(object parameter)
-        {
-            if (!(parameter is MainWindowVM mainWindowVM))
-                return;
-
             mainWindowVM.IsEnabled = false;
             Task.Run(() => LogOut(mainWindowVM));
         }
@@ -41,23 +26,22 @@
         /// Разлогиниться.
         /// </summary>
         /// <param name="mainWindowVM">Вью-модель главного окна.</param>
-        public async Task LogOut(MainWindowVM mainWindowVM)
+        private static async Task LogOut(MainWindowVM mainWindowVM)
         {
-            var uri = $"{mainWindowVM.WebApiAddress}/setactivityfalse";
-
             var person = new Person
             {
                 Name = mainWindowVM.UserName
             };
 
-            var jsonInString = JsonConvert.SerializeObject(person);
-            var response = await mainWindowVM.HttpClient.PutAsync(uri,
-                new StringContent(jsonInString, Encoding.UTF8, "application/json"));
+            var ninjectKernel = new StandardKernel();
+            var connectionService = ninjectKernel.Get<IPersonService>();
+            var isSuccess = await connectionService.LogOutAsync(person);
+
             await mainWindowVM.HubConnection.InvokeAsync("UpdateUsersActivity", mainWindowVM.UserName, false);
 
             Application.Current.Dispatcher?.Invoke(() =>
             {
-                if (response.IsSuccessStatusCode)
+                if (isSuccess)
                     mainWindowVM.MessageList.Add($"Пользователь {mainWindowVM.UserName} покинул здание!");
 
                 mainWindowVM.IsEnabled = true;

@@ -7,10 +7,6 @@
 
     using Microsoft.AspNetCore.SignalR.Client;
 
-    using Newtonsoft.Json;
-
-    using SignalRChatClient.Models;
-
     /// <summary>
     /// Инструмент для работы с соединением.
     /// </summary>
@@ -24,9 +20,8 @@
         {
             var path = Environment.CurrentDirectory;
             var configTextFromFile = File.ReadAllText(path + "\\address_config.json");
-            var connectionConfig = JsonConvert.DeserializeObject<ConnectionConfig>(configTextFromFile);
 
-            return connectionConfig.Address;
+            return configTextFromFile;
         }
 
         /// <summary>
@@ -51,30 +46,7 @@
                 return Task.CompletedTask;
             };
 
-            Task.Run(async () =>
-            {
-                try
-                {
-                    Application.Current.Dispatcher?.Invoke(() => mainWindowVM.NeedGetConnection = false);
-
-                    await mainWindowVM.HubConnection.StartAsync();
-                    Application.Current.Dispatcher?.Invoke(() =>
-                    {
-                        mainWindowVM.IsEnabled = true;
-                        mainWindowVM.NeedGetConnection = false;
-                        mainWindowVM.MessageList.Add("Соединение установлено");
-                    });
-                }
-                catch (Exception)
-                {
-                    Application.Current.Dispatcher?.Invoke(() =>
-                    {
-                        mainWindowVM.MessageList.Add("Не удалось соединиться с сервером");
-                        mainWindowVM.NeedGetConnection = true;
-                    });
-                    await mainWindowVM.HubConnection.DisposeAsync();
-                }
-            });
+            Task.Run(async () => await TryGetConnectionAsync(mainWindowVM));
         }
 
         /// <summary>
@@ -102,6 +74,35 @@
                         mainWindowVM.ActiveUsers.Remove(user);
                 });
             });
+        }
+
+        /// <summary>
+        /// Попытаться соединиться с хабом.
+        /// </summary>
+        /// <param name="mainWindowVM">Вью-модель главного окна.</param>
+        private static async Task TryGetConnectionAsync(MainWindowVM mainWindowVM)
+        {
+            try
+            {
+                Application.Current.Dispatcher?.Invoke(() => mainWindowVM.NeedGetConnection = false);
+
+                await mainWindowVM.HubConnection.StartAsync();
+                Application.Current.Dispatcher?.Invoke(() =>
+                {
+                    mainWindowVM.IsEnabled = true;
+                    mainWindowVM.NeedGetConnection = false;
+                    mainWindowVM.MessageList.Add("Соединение установлено");
+                });
+            }
+            catch (Exception)
+            {
+                Application.Current.Dispatcher?.Invoke(() =>
+                {
+                    mainWindowVM.MessageList.Add("Не удалось соединиться с сервером");
+                    mainWindowVM.NeedGetConnection = true;
+                });
+                await mainWindowVM.HubConnection.DisposeAsync();
+            }
         }
     }
 }

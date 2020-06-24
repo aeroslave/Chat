@@ -1,38 +1,24 @@
 ﻿namespace SignalRChatClient.Commands
 {
     using System;
-    using System.Net.Http;
-    using System.Text;
     using System.Threading.Tasks;
     using System.Windows;
-    using System.Windows.Input;
 
     using Microsoft.AspNetCore.SignalR.Client;
 
-    using Newtonsoft.Json;
+    using Ninject;
 
+    using SignalRChatClient.Interfaces;
     using SignalRChatClient.Models;
 
     /// <summary>
     /// Команда проверки наличия пользователя.
     /// </summary>
-    public class CheckPersonCommand : ICommand
+    public class CheckPersonCommand : TypedBaseCommand<MainWindowVM>
     {
-        public bool CanExecute(object parameter)
+        /// <inheritdoc />
+        public override void Execute(MainWindowVM mainWindowVM)
         {
-            return true;
-        }
-
-        public event EventHandler CanExecuteChanged;
-
-        /// <summary>
-        /// Выполнить.
-        /// </summary>
-        public void Execute(object parameter)
-        {
-            if (!(parameter is MainWindowVM mainWindowVM))
-                return;
-
             mainWindowVM.IsEnabled = false;
             Task.Run(() => CheckPersonAsync(mainWindowVM));
         }
@@ -48,18 +34,16 @@
                 Name = mainWindowVM.UserName
             };
 
-            var jsonInString = JsonConvert.SerializeObject(person);
-            var responsePersonExist = await mainWindowVM.HttpClient.PutAsync(mainWindowVM.WebApiAddress,
-                new StringContent(jsonInString, Encoding.UTF8, "application/json"));
+            var ninjectKernel = new StandardKernel();
+            var connectionService = ninjectKernel.Get<IPersonService>();
+            var isPersonExist = await connectionService.CheckPersonExistingAsync(person);
+            var isPersonActive = await connectionService.CheckPersonActivityAsync(person);
 
-            var responseActivity = await mainWindowVM.HttpClient.PutAsync(mainWindowVM.WebApiAddress + "/isActive",
-                new StringContent(jsonInString, Encoding.UTF8, "application/json"));
-
-            if (!responseActivity.IsSuccessStatusCode && responsePersonExist.IsSuccessStatusCode)
+            if (!isPersonActive && isPersonExist)
                 await GetConnection(mainWindowVM);
             else
                 Application.Current.Dispatcher?.Invoke(() =>
-                    mainWindowVM.MessageList.Add(!responsePersonExist.IsSuccessStatusCode
+                    mainWindowVM.MessageList.Add(!isPersonExist
                         ? "Пользователь с таким именем не зарегистрирован!"
                         : "Пользователь с таким именем уже залогинился!"));
 

@@ -1,33 +1,22 @@
 ﻿namespace SignalRChatClient.Commands
 {
-    using System;
-    using System.Net.Http;
-    using System.Text;
     using System.Threading.Tasks;
     using System.Windows;
-    using System.Windows.Input;
 
-    using Newtonsoft.Json;
+    using Ninject;
 
+    using SignalRChatClient.Interfaces;
     using SignalRChatClient.Models;
     using SignalRChatClient.VMs;
 
     /// <summary>
     /// Команда отправки сообщения.
     /// </summary>
-    public class PostToWebApiCommand : ICommand
+    public class PostToWebApiCommand : TypedBaseCommand<AddPersonWindowVM>
     {
-        public bool CanExecute(object parameter)
+        /// <inheritdoc />
+        public override void Execute(AddPersonWindowVM addPersonWindowVM)
         {
-            return true;
-        }
-
-        public event EventHandler CanExecuteChanged;
-
-        public void Execute(object parameter)
-        {
-            if (!(parameter is AddPersonWindowVM addPersonWindowVM))
-                return;
             addPersonWindowVM.IsEnabled = false;
             Task.Run(() => PostMessageAsync(addPersonWindowVM));
         }
@@ -45,12 +34,12 @@
                 IsActive = false
             };
 
-            var jsonInString = JsonConvert.SerializeObject(person);
+            var ninjectKernel = new StandardKernel();
+            var connectionService = ninjectKernel.Get<IPersonService>();
 
-            var isPersonExsist = await addPersonWindowVM.HttpClient.PutAsync(addPersonWindowVM.WebApiAddress,
-                new StringContent(jsonInString, Encoding.UTF8, "application/json"));
+            var isPersonExsist = await connectionService.CheckPersonExistingAsync(person);
 
-            if (isPersonExsist.IsSuccessStatusCode)
+            if (isPersonExsist)
             {
                 Application.Current.Dispatcher.Invoke(() =>
                 {
@@ -61,12 +50,11 @@
                 return;
             }
 
-            var response = await addPersonWindowVM.HttpClient.PostAsync(addPersonWindowVM.WebApiAddress,
-                new StringContent(jsonInString, Encoding.UTF8, "application/json"));
+            var isPersonCreated = await connectionService.CreatePersonAsync(person);
 
             Application.Current.Dispatcher.Invoke(() =>
             {
-                if (response.IsSuccessStatusCode)
+                if (isPersonCreated)
                     MessageBox.Show($"Пользователь {person.Name} добавлен");
                 addPersonWindowVM.IsEnabled = true;
             });

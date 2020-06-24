@@ -1,31 +1,16 @@
 ﻿namespace SignalRChatClient.Commands
 {
-    using System;
-    using System.Windows.Input;
-
     using SignalRChatClient.Utilites;
 
     /// <summary>
     /// Команда получения соединения.
     /// </summary>
-    public class GetConnectionCommand: ICommand
+    public class GetConnectionCommand : TypedBaseCommand<MainWindowVM>
     {
-        public bool CanExecute(object parameter)
+        /// <inheritdoc />
+        public override void Execute(MainWindowVM mainWindowVM)
         {
-            return true;
-        }
-
-        /// <summary>
-        /// Выполнить.
-        /// </summary>
-        public void Execute(object parameter)
-        {
-            if (!(parameter is MainWindowVM mainWindowVM))
-                return;
-
             ConnectionUtils.InitHubConnection(mainWindowVM);
         }
-
-        public event EventHandler CanExecuteChanged;
     }
 }
