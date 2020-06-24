@@ -52,7 +52,7 @@
             CheckPersonCommand = new CheckPersonCommand();
 
             var ninjectKernel = new StandardKernel();
-            ninjectKernel.Bind<IPersonService>().To<PersonService>();
+            ninjectKernel.Bind<IPersonService>().To<PersonService>().InSingletonScope();
 
             GetPersons();
         }
