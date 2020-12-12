@@ -9,6 +9,7 @@
 
     using SignalRChatClient.Interfaces;
     using SignalRChatClient.Models;
+    using SignalRChatClient.Utilites;
 
     /// <summary>
     /// Команда соединения с хабом.
@@ -33,8 +34,7 @@
                 Name = mainWindowVM.UserName
             };
 
-            var ninjectKernel = new StandardKernel();
-            var connectionService = ninjectKernel.Get<IPersonService>();
+            var connectionService = NinjectKernel.Kernel.Get<IPersonService>();
             var isSuccess = await connectionService.LogOutAsync(person);
 
             await mainWindowVM.HubConnection.InvokeAsync("UpdateUsersActivity", mainWindowVM.UserName, false);

@@ -138,10 +138,12 @@
     <Compile Include="Commands\ShowAddPersonWindowCommand.cs" />
     <Compile Include="Commands\TypedBaseCommand.cs" />
     <Compile Include="Interfaces\IPersonService.cs" />
+    <Compile Include="Models\Address.cs" />
     <Compile Include="Models\ConnectionConfig.cs" />
     <Compile Include="Properties\Annotations.cs" />
     <Compile Include="Services\PersonService.cs" />
     <Compile Include="Utilites\ConnectionUtils.cs" />
+    <Compile Include="Utilites\NinjectKernel.cs" />
     <Compile Include="VMs\AddPersonWindowVM.cs" />
     <Compile Include="VMs\BaseViewModel.cs" />
     <Compile Include="Windows\AddPersonWindow.xaml.cs">

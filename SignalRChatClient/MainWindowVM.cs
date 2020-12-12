@@ -42,6 +42,8 @@
         {
             MessageList = new ObservableCollection<string>();
             NeedGetConnection = true;
+            ActiveUsers = new ObservableCollection<string>();
+
 
             ConnectionUtils.InitHubConnection(this);
 
@@ -50,9 +52,6 @@
             SendMessageCommand = new SendMessageCommand();
             ShowAddPersonWindowCommand = new ShowAddPersonWindowCommand();
             CheckPersonCommand = new CheckPersonCommand();
-
-            var ninjectKernel = new StandardKernel();
-            ninjectKernel.Bind<IPersonService>().To<PersonService>().InSingletonScope();
 
             GetPersons();
         }
@@ -154,8 +153,7 @@
         /// </summary>
         private async Task GetPersonsAsync()
         {
-            var ninjectKernel = new StandardKernel();
-            var connectionService = ninjectKernel.Get<IPersonService>();
+            var connectionService = NinjectKernel.Kernel.Get<IPersonService>();
 
             var persons = await connectionService.GetPersonsAsync();
 

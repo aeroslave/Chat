@@ -10,6 +10,7 @@
 
     using SignalRChatClient.Interfaces;
     using SignalRChatClient.Models;
+    using SignalRChatClient.Utilites;
 
     /// <summary>
     /// Команда проверки наличия пользователя.
@@ -33,9 +34,8 @@
             {
                 Name = mainWindowVM.UserName
             };
-
-            var ninjectKernel = new StandardKernel();
-            var connectionService = ninjectKernel.Get<IPersonService>();
+            
+            var connectionService = NinjectKernel.Kernel.Get<IPersonService>();
             var isPersonExist = await connectionService.CheckPersonExistingAsync(person);
             var isPersonActive = await connectionService.CheckPersonActivityAsync(person);
 

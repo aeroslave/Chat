@@ -2,10 +2,11 @@
 {
     using Microsoft.EntityFrameworkCore;
 
-    public class UsersContext : DbContext
+    public sealed class UsersContext : DbContext
     {
         public UsersContext(DbContextOptions options) : base(options)
         {
+            Database.EnsureCreated();
         }
 
         public DbSet<Person> Persons { get; set; }

@@ -22,7 +22,7 @@
         public PersonService()
         {
             HttpClient = new HttpClient();
-            Address = ConnectionUtils.GetAddressConnection();
+            Address = ConnectionUtils.GetAddressConnection().Address;
         }
 
         /// <summary>

@@ -7,6 +7,7 @@
 
     using SignalRChatClient.Interfaces;
     using SignalRChatClient.Models;
+    using SignalRChatClient.Utilites;
     using SignalRChatClient.VMs;
 
     /// <summary>
@@ -34,8 +35,7 @@
                 IsActive = false
             };
 
-            var ninjectKernel = new StandardKernel();
-            var connectionService = ninjectKernel.Get<IPersonService>();
+            var connectionService = NinjectKernel.Kernel.Get<IPersonService>();
 
             var isPersonExsist = await connectionService.CheckPersonExistingAsync(person);
 

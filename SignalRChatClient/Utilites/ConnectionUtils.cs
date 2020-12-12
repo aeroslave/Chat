@@ -7,6 +7,10 @@
 
     using Microsoft.AspNetCore.SignalR.Client;
 
+    using Newtonsoft.Json;
+
+    using SignalRChatClient.Models;
+
     /// <summary>
     /// Инструмент для работы с соединением.
     /// </summary>
@@ -16,12 +20,12 @@
         /// Получить адрес подключения.
         /// </summary>
         /// <returns>Адрес подключения.</returns>
-        public static string GetAddressConnection()
+        public static AddressConfig GetAddressConnection()
         {
             var path = Environment.CurrentDirectory;
             var configTextFromFile = File.ReadAllText(path + "\\address_config.json");
 
-            return configTextFromFile;
+            return JsonConvert.DeserializeObject<AddressConfig>(configTextFromFile);
         }
 
         /// <summary>
@@ -30,7 +34,9 @@
         public static void InitHubConnection(MainWindowVM mainWindowVM)
         {
             var address = GetAddressConnection();
-            mainWindowVM.HubConnection = new HubConnectionBuilder().WithUrl(address + "/ChatHub").Build();
+
+            //TODO надо изменить, назначать HubConnection не здесь.
+            mainWindowVM.HubConnection = new HubConnectionBuilder().WithUrl(address.Address + "/chatHub").Build();
 
             RegisterHandler(mainWindowVM);
 
@@ -94,11 +100,11 @@
                     mainWindowVM.MessageList.Add("Соединение установлено");
                 });
             }
-            catch (Exception)
+            catch (Exception exception)
             {
                 Application.Current.Dispatcher?.Invoke(() =>
                 {
-                    mainWindowVM.MessageList.Add("Не удалось соединиться с сервером");
+                    mainWindowVM.MessageList.Add($"Не удалось соединиться с сервером: {exception.Message}");
                     mainWindowVM.NeedGetConnection = true;
                 });
                 await mainWindowVM.HubConnection.DisposeAsync();

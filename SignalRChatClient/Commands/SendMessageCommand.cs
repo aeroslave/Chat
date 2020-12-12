@@ -15,7 +15,7 @@
         {
             if (mainWindowVM.ActiveUsers.All(user => user != mainWindowVM.UserName))
             {
-                mainWindowVM.MessageList.Add("Необходимой залогиниться.");
+                mainWindowVM.MessageList.Add("Необходимо залогиниться.");
                 return;
             }
 
