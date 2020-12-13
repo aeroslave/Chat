@@ -1,6 +1,7 @@
 ﻿namespace SignalRChat.Controllers
 {
     using System.Collections.Generic;
+    using System.Linq;
     using System.Threading.Tasks;
 
     using Microsoft.AspNetCore.Mvc;
@@ -56,6 +57,18 @@
         }
 
         /// <summary>
+        /// Получить список сообщений.
+        /// </summary>
+        /// <returns></returns>
+        [Route("getMessages")]
+        [HttpGet]
+        public async Task<List<Message>> GetMessages()
+        {
+            var messages = await _context.Messages.ToListAsync();
+            return messages.TakeLast(10).ToList();
+        }
+
+        /// <summary>
         /// Получить список пользователей.
         /// </summary>
         /// <returns></returns>
@@ -73,7 +86,7 @@
         public async Task<long> Post(Person person)
         {
             var isPersonExist =
-                await _context.Persons.AnyAsync(it => it.Name == person.Name && it.BirthDate == person.BirthDate);
+                await _context.Persons.AnyAsync(it => it.Name == person.Name);
             if (isPersonExist)
                 throw new ChatControllerException("Такой пользователь уже создан!");
 
@@ -81,6 +94,20 @@
             await _context.SaveChangesAsync();
 
             return person.Id;
+        }
+
+        /// <summary>
+        /// Добавить сообщение.
+        /// </summary>
+        /// <param name="message">Сообщение.</param>
+        [Route("addMessage")]
+        [HttpPost]
+        public async Task<long> PostMessage(Message message)
+        {
+            _context.Messages.Add(message);
+            await _context.SaveChangesAsync();
+
+            return message.Id;
         }
 
         /// <summary>

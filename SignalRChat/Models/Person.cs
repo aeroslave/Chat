@@ -18,11 +18,6 @@
         public string Name { get; set; }
 
         /// <summary>
-        /// Дата рождения.
-        /// </summary>
-        public DateTime BirthDate { get; set; }
-
-        /// <summary>
         /// Флаг активности пользователя.
         /// </summary>
         public bool IsActive { get; set; }

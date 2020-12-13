@@ -5,6 +5,8 @@
 
     using Microsoft.AspNetCore.SignalR.Client;
 
+    using SignalRChatClient.VMs;
+
     /// <summary>
     /// Команда отправки сообщеий.
     /// </summary>

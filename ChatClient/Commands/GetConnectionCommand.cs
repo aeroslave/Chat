@@ -1,7 +1,7 @@
-﻿namespace SignalRChatClient.Commands
+﻿namespace ChatClient.Commands
 {
-    using SignalRChatClient.Utilites;
-    using SignalRChatClient.VMs;
+    using ChatClient.Utilites;
+    using ChatClient.VMs;
 
     /// <summary>
     /// Команда получения соединения.

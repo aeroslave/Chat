@@ -1,16 +1,16 @@
-﻿namespace SignalRChatClient.Commands
+﻿namespace ChatClient.Commands
 {
     using System.Threading.Tasks;
     using System.Windows;
 
+    using ChatClient.Interfaces;
+    using ChatClient.Models;
+    using ChatClient.Utilites;
+    using ChatClient.VMs;
+
     using Microsoft.AspNetCore.SignalR.Client;
 
     using Ninject;
-
-    using SignalRChatClient.Interfaces;
-    using SignalRChatClient.Models;
-    using SignalRChatClient.Utilites;
-    using SignalRChatClient.VMs;
 
     /// <summary>
     /// Команда соединения с хабом.

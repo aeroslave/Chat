@@ -1,16 +1,16 @@
-﻿namespace SignalRChatClient.Utilites
+﻿namespace ChatClient.Utilites
 {
     using System;
     using System.IO;
     using System.Threading.Tasks;
     using System.Windows;
 
+    using ChatClient.Models;
+    using ChatClient.VMs;
+
     using Microsoft.AspNetCore.SignalR.Client;
 
     using Newtonsoft.Json;
-
-    using SignalRChatClient.Models;
-    using SignalRChatClient.VMs;
 
     /// <summary>
     /// Инструмент для работы с соединением.
@@ -35,8 +35,6 @@
         public static void InitHubConnection(MainWindowVM mainWindowVM)
         {
             var address = GetAddressConnection();
-
-            //TODO надо изменить, назначать HubConnection не здесь.
             mainWindowVM.HubConnection = new HubConnectionBuilder().WithUrl(address.Address + "/chatHub").Build();
 
             RegisterHandler(mainWindowVM);
@@ -54,6 +52,28 @@
             };
 
             Task.Run(async () => await TryGetConnectionAsync(mainWindowVM));
+        }
+
+        /// <summary>
+        /// Обновить активность пользователя.
+        /// </summary>
+        /// <param name="mainWindowVM">Вью-модель главного окна.</param>
+        public static async Task UpdateUserActivity(MainWindowVM mainWindowVM)
+        {
+            try
+            {
+                await mainWindowVM.HubConnection.InvokeAsync("UpdateUsersActivity", mainWindowVM.UserName, true);
+                Application.Current.Dispatcher?.Invoke(() =>
+                {
+                    mainWindowVM.MessageList.Add($"Добро пожаловать {mainWindowVM.UserName}");
+                    mainWindowVM.IsLogin = true;
+                });
+            }
+            catch (Exception e)
+            {
+                Application.Current.Dispatcher?.Invoke(() =>
+                    mainWindowVM.MessageList.Add(e.Message));
+            }
         }
 
         /// <summary>
@@ -91,8 +111,6 @@
         {
             try
             {
-                Application.Current.Dispatcher?.Invoke(() => mainWindowVM.NeedGetConnection = false);
-
                 await mainWindowVM.HubConnection.StartAsync();
                 Application.Current.Dispatcher?.Invoke(() =>
                 {

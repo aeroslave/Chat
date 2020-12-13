@@ -1,9 +1,9 @@
-﻿namespace SignalRChatClient.Utilites
+﻿namespace ChatClient.Utilites
 {
-    using Ninject;
+    using ChatClient.Interfaces;
+    using ChatClient.Services;
 
-    using SignalRChatClient.Interfaces;
-    using SignalRChatClient.Services;
+    using Ninject;
 
     public static class NinjectKernel
     {

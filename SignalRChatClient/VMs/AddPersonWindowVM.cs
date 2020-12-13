@@ -16,7 +16,7 @@
         /// </summary>
         public AddPersonWindowVM()
         {
-            PostToWebApiCommand = new PostToWebApiCommand();
+            AddPersonCommand = new AddPersonCommand();
         }
 
         /// <summary>
@@ -45,6 +45,6 @@
         /// <summary>
         /// Команда отправки сообщения из WebAPI
         /// </summary>
-        public PostToWebApiCommand PostToWebApiCommand { get; set; }
+        public AddPersonCommand AddPersonCommand { get; set; }
     }
 }

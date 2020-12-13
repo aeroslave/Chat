@@ -1,0 +1,83 @@
+﻿<Window x:Class="SignalRChatClient.Windows.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SignalRChatClient"
+        xmlns:converters="clr-namespace:SignalRChatClient.Converters"
+        xmlns:vMs="clr-namespace:SignalRChatClient.VMs"
+        mc:Ignorable="d"
+        Title="Signal R Chat Client" Height="586" Width="800"
+        d:DataContext="{d:DesignInstance Type=vMs:MainWindowVM, IsDesignTimeCreatable=True}">
+    <Window.Resources>
+        <converters:InverseBooleanConverter x:Key="InverseBooleanConverter"/>
+    </Window.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+
+        <StackPanel Grid.Row="0">
+            <Label Content="Логин:" />
+            <TextBox Margin="5" VerticalAlignment="Stretch"
+                     Text="{Binding UserName}" />
+        </StackPanel>
+
+        <StackPanel Grid.Row="0" Grid.Column="1" Margin="0 10 5 0">
+            <Button Content="Войти" Margin="5"
+                    Command="{Binding CheckPersonCommand}"
+                    CommandParameter="{Binding}"
+                    IsEnabled="{Binding IsLogin, Converter={StaticResource InverseBooleanConverter}}" />
+
+            <Button Content="Добавить" Margin="5" Command="{Binding AddPersonCommand}"
+                    CommandParameter="{Binding}"
+                    IsEnabled="{Binding IsLogin, Converter={StaticResource InverseBooleanConverter}}" />
+
+            <Button Margin="5"
+                    Content="Выйти"
+                    Command="{Binding DisconnectionCommand}"
+                    CommandParameter="{Binding}"
+                    IsEnabled="{Binding IsLogin}" />
+        </StackPanel>
+
+        <StackPanel Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2">
+            <Label Content="Сообщение:" />
+            <TextBox Margin="5"
+                     Text="{Binding Message}"
+                     IsEnabled="{Binding IsLogin}" />
+        </StackPanel>
+
+        <Button Grid.Row="2" Grid.Column="0"
+                HorizontalAlignment="Left"
+                Margin="5"
+                VerticalAlignment="Bottom"
+                Content="Отправить"
+                Command="{Binding SendMessageCommand}"
+                CommandParameter="{Binding}"
+                IsEnabled="{Binding IsLogin}" />
+
+        <ListBox Margin="5" Grid.Row="3"
+                 Grid.Column="0" Grid.ColumnSpan="2"
+                 ItemsSource="{Binding MessageList}" />
+
+        <StackPanel Grid.Row="4" Grid.ColumnSpan="2" Grid.Column="0">
+            <Label Content="Список активных пользоватлей" />
+            <ListBox ItemsSource="{Binding ActiveUsers}" />
+        </StackPanel>
+
+        <Button Grid.Row="5" Grid.ColumnSpan="2" Grid.Column="0"
+                Content="Подключиться" Margin="5"
+                IsEnabled="{Binding NeedGetConnection}"
+                Command="{Binding GetConnectionCommand}"
+                CommandParameter="{Binding}" />
+    </Grid>
+</Window>
