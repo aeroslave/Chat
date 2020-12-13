@@ -65,8 +65,8 @@
                 await mainWindowVM.HubConnection.InvokeAsync("UpdateUsersActivity", mainWindowVM.UserName, true);
                 Application.Current.Dispatcher?.Invoke(() =>
                 {
-                    mainWindowVM.MessageList.Add($"Добро пожаловать {mainWindowVM.UserName}");
                     mainWindowVM.IsLogin = true;
+                    mainWindowVM.MessageList.Add($"Добро пожаловать {mainWindowVM.UserName}");
                 });
             }
             catch (Exception e)
@@ -125,6 +125,7 @@
                     mainWindowVM.MessageList.Add($"Не удалось соединиться с сервером: {exception.Message}");
                     mainWindowVM.NeedGetConnection = true;
                 });
+
                 await mainWindowVM.HubConnection.DisposeAsync();
             }
         }

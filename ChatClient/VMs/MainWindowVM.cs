@@ -72,6 +72,11 @@
         public AddPersonCommand AddPersonCommand { get; set; }
 
         /// <summary>
+        /// Флаг возможности залогиниться.
+        /// </summary>
+        public bool CanLogin => !IsLogin && !NeedGetConnection;
+
+        /// <summary>
         /// Проверить пользователя.
         /// </summary>
         public CheckPersonCommand CheckPersonCommand { get; set; }
@@ -100,12 +105,13 @@
             set
             {
                 _isLogin = value;
+                if (value)
+                    GetMessages();
+
                 OnPropertyChanged();
                 OnPropertyChanged(nameof(CanLogin));
             }
         }
-
-        public bool CanLogin => !IsLogin && !NeedGetConnection;
 
         /// <summary>
         /// Сообщение для отправки.
@@ -126,6 +132,9 @@
             set
             {
                 _needGetConnection = value;
+                if (!value)
+                    GetPersons();
+
                 OnPropertyChanged();
                 OnPropertyChanged(nameof(CanLogin));
             }
@@ -142,6 +151,26 @@
         public string UserName { get; set; }
 
         /// <summary>
+        /// Получить список сообщений.
+        /// </summary>
+        private void GetMessages()
+        {
+            MessageList.Clear();
+            Task.Run(GetMessagesAsync);
+        }
+
+        /// <summary>
+        /// Получить список сообщений асинхронно.
+        /// </summary>
+        private async Task GetMessagesAsync()
+        {
+            var connectionService = NinjectKernel.Instance.Get<IPersonService>();
+            var messages = await connectionService.GetMessages();
+
+            Application.Current.Dispatcher.Invoke(() => messages.ForEach(message => MessageList.Add(message.Text)));
+        }
+
+        /// <summary>
         /// Получить список пользователей.
         /// </summary>
         private void GetPersons()
@@ -156,12 +185,9 @@
         {
             var connectionService = NinjectKernel.Instance.Get<IPersonService>();
             var persons = await connectionService.GetPersonsAsync();
-            var messages = await connectionService.GetMessages();
 
             ActiveUsers =
                 new ObservableCollection<string>(persons.Where(person => person.IsActive).Select(it => it.Name));
-
-            Application.Current.Dispatcher.Invoke(() => messages.ForEach(message => MessageList.Add(message.Text)));
         }
     }
 }
