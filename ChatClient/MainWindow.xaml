@@ -3,15 +3,11 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:converters="clr-namespace:ChatClient.Converters"
         xmlns:vMs="clr-namespace:ChatClient.VMs"
         mc:Ignorable="d"
         Title="Chat Client" Height="586" Width="800"
          WindowStartupLocation="CenterScreen"
         d:DataContext="{d:DesignInstance Type=vMs:MainWindowVM, IsDesignTimeCreatable=True}" ResizeMode="NoResize">
-    <Window.Resources>
-        <converters:InverseBooleanConverter x:Key="InverseBooleanConverter"/>
-    </Window.Resources>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
