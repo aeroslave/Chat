@@ -21,7 +21,7 @@
         /// </summary>
         /// <param name="person">Пользователь.</param>
         /// <returns>True - если пользователь активен.</returns>
-        Task<bool> CheckPersonActivityAsync(Person person);
+        Task<string> CheckPersonActivityAsync(Person person);
 
         /// <summary>
         /// Проверить существование пользователя.

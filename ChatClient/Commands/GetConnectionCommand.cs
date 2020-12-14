@@ -11,7 +11,7 @@
         /// <inheritdoc />
         public override void Execute(MainWindowVM mainWindowVM)
         {
-            ConnectionUtils.InitHubConnection(mainWindowVM);
+            //ConnectionUtils.InitHubConnection(mainWindowVM);
         }
     }
 }

@@ -60,13 +60,13 @@
         /// </summary>
         /// <param name="person">Пользователь.</param>
         /// <returns>True - если пользователь активен.</returns>
-        public async Task<bool> CheckPersonActivityAsync(Person person)
+        public async Task<string> CheckPersonActivityAsync(Person person)
         {
             var jsonInString = JsonConvert.SerializeObject(person);
             var responseActivity = await HttpClient.PutAsync(WebApiAddress + "/isActive",
                 new StringContent(jsonInString, Encoding.UTF8, "application/json"));
 
-            return responseActivity.IsSuccessStatusCode;
+            return await responseActivity.Content.ReadAsStringAsync();
         }
 
         /// <summary>

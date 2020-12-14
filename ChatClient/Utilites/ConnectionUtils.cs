@@ -32,10 +32,12 @@
         /// <summary>
         /// Инициализация соединения с хабом.
         /// </summary>
-        public static void InitHubConnection(MainWindowVM mainWindowVM)
+        public static async Task InitHubConnection(MainWindowVM mainWindowVM, string token)
         {
             var address = GetAddressConnection();
-            mainWindowVM.HubConnection = new HubConnectionBuilder().WithUrl(address.Address + "/chatHub").Build();
+            mainWindowVM.HubConnection = new HubConnectionBuilder()
+                .WithUrl(address.Address + "/chatHub",
+                    o => o.AccessTokenProvider = () => Task.FromResult(token)).Build();
 
             RegisterHandler(mainWindowVM);
 
@@ -44,14 +46,13 @@
                 Application.Current.Dispatcher?.Invoke(() =>
                 {
                     mainWindowVM.MessageList.Add("Соединение потеряно");
-                    mainWindowVM.NeedGetConnection = true;
                     mainWindowVM.IsLogin = false;
                 });
 
                 return Task.CompletedTask;
             };
 
-            Task.Run(async () => await TryGetConnectionAsync(mainWindowVM));
+            await TryGetConnectionAsync(mainWindowVM);
         }
 
         /// <summary>
@@ -91,16 +92,8 @@
                 });
             });
 
-            mainWindowVM.HubConnection.On<string, bool>("UpdateUsers", (user, isActive) =>
-            {
-                Application.Current.Dispatcher?.Invoke(() =>
-                {
-                    if (isActive)
-                        mainWindowVM.ActiveUsers.Add(user);
-                    else
-                        mainWindowVM.ActiveUsers.Remove(user);
-                });
-            });
+            mainWindowVM.HubConnection.On<string, bool>("UpdateUsers",
+                (user, isActive) => Application.Current.Dispatcher?.Invoke(mainWindowVM.GetPersons));
         }
 
         /// <summary>
@@ -112,19 +105,11 @@
             try
             {
                 await mainWindowVM.HubConnection.StartAsync();
-                Application.Current.Dispatcher?.Invoke(() =>
-                {
-                    mainWindowVM.NeedGetConnection = false;
-                    mainWindowVM.MessageList.Add("Соединение установлено");
-                });
             }
             catch (Exception exception)
             {
                 Application.Current.Dispatcher?.Invoke(() =>
-                {
-                    mainWindowVM.MessageList.Add($"Не удалось соединиться с сервером: {exception.Message}");
-                    mainWindowVM.NeedGetConnection = true;
-                });
+                    mainWindowVM.MessageList.Add($"Не удалось соединиться с сервером: {exception.Message}"));
 
                 await mainWindowVM.HubConnection.DisposeAsync();
             }

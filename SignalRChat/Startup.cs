@@ -1,7 +1,10 @@
 namespace SignalRChat
 {
     using System;
+    using System.Security.Claims;
 
+    using Microsoft.AspNetCore.Authentication.JwtBearer;
+    using Microsoft.AspNetCore.Authorization;
     using Microsoft.AspNetCore.Builder;
     using Microsoft.AspNetCore.Hosting;
     using Microsoft.AspNetCore.Http;
@@ -9,8 +12,10 @@ namespace SignalRChat
     using Microsoft.Extensions.Configuration;
     using Microsoft.Extensions.DependencyInjection;
     using Microsoft.Extensions.Hosting;
+    using Microsoft.IdentityModel.Tokens;
     using Microsoft.OpenApi.Models;
 
+    using SignalRChat.Authentication;
     using SignalRChat.Hubs;
     using SignalRChat.Models;
 
@@ -39,6 +44,9 @@ namespace SignalRChat
             app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseRouting();
+
+            app.UseAuthentication();
+            app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
             {
@@ -69,6 +77,29 @@ namespace SignalRChat
                 "Server=(localdb)\\mssqllocaldb;Database=userdbstore;Trusted_Connection=True;MultipleActiveResultSets=true";
 
             services.AddDbContext<UsersContext>(options => options.UseSqlServer(con));
+
+            services.AddAuthentication(o => { o.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme; })
+                .AddJwtBearer(o =>
+                {
+                    o.RequireHttpsMetadata = false;
+                    o.SecurityTokenValidators.Clear();
+                    o.SecurityTokenValidators.Add(new NameTokenValidator());
+                    o.TokenValidationParameters = new TokenValidationParameters
+                    {
+                        ValidateIssuer = true,
+                        ValidIssuer = AuthOptions.ISSUER,
+                        ValidateAudience = true,
+                        ValidAudience = AuthOptions.AUDIENCE,
+                        ValidateLifetime = true,
+                        IssuerSigningKey = AuthOptions.GetSymmetricSecurityKey(),
+                        ValidateIssuerSigningKey = true,
+                    };
+                });
+
+            services.AddAuthorization(o => o.DefaultPolicy =
+                new AuthorizationPolicyBuilder(JwtBearerDefaults.AuthenticationScheme)
+                    .RequireClaim(ClaimTypes.Name)
+                    .Build());
 
             services.AddRouting();
             services.AddSignalR();

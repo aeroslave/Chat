@@ -38,6 +38,7 @@
             var isSuccess = await connectionService.LogOutAsync(person);
 
             await mainWindowVM.HubConnection.InvokeAsync("UpdateUsersActivity", mainWindowVM.UserName, false);
+            await mainWindowVM.HubConnection.DisposeAsync();
 
             Application.Current.Dispatcher?.Invoke(() =>
             {

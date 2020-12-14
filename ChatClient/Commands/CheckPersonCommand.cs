@@ -42,10 +42,13 @@
 
             var connectionService = NinjectKernel.Instance.Get<IPersonService>();
             var isPersonExist = await connectionService.CheckPersonExistingAsync(person);
-            var isPersonActive = await connectionService.CheckPersonActivityAsync(person);
+            var token = await connectionService.CheckPersonActivityAsync(person);
 
-            if (!isPersonActive && isPersonExist)
+            if (!string.IsNullOrWhiteSpace(token) && isPersonExist)
+            {
+                await ConnectionUtils.InitHubConnection(mainWindowVM, token);
                 await ConnectionUtils.UpdateUserActivity(mainWindowVM);
+            }
             else
                 Application.Current.Dispatcher?.Invoke(() =>
                     mainWindowVM.MessageList.Add(!isPersonExist

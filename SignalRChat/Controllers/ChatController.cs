@@ -1,12 +1,17 @@
 ﻿namespace SignalRChat.Controllers
 {
+    using System;
     using System.Collections.Generic;
+    using System.IdentityModel.Tokens.Jwt;
     using System.Linq;
+    using System.Security.Claims;
     using System.Threading.Tasks;
 
     using Microsoft.AspNetCore.Mvc;
     using Microsoft.EntityFrameworkCore;
+    using Microsoft.IdentityModel.Tokens;
 
+    using SignalRChat.Authentication;
     using SignalRChat.Models;
 
     [Route("api/[controller]")]
@@ -36,10 +41,20 @@
             if (dBPerson.IsActive)
                 return Ok();
 
-            dBPerson.IsActive = true;
-            await _context.SaveChangesAsync();
+            var now = DateTime.UtcNow;
+            var identity = GetIdentity(person);
 
-            return NotFound();
+            var jwt = new JwtSecurityToken(
+                AuthOptions.ISSUER,
+                AuthOptions.AUDIENCE,
+                identity.Claims,
+                now,
+                now.Add(TimeSpan.FromMinutes(AuthOptions.LIFETIME)),
+                new SigningCredentials(AuthOptions.GetSymmetricSecurityKey(), SecurityAlgorithms.HmacSha256));
+
+            var encodedJwt = new JwtSecurityTokenHandler().WriteToken(jwt);
+
+            return Ok(encodedJwt);
         }
 
         /// <summary>
@@ -127,6 +142,24 @@
             await _context.SaveChangesAsync();
 
             return Ok();
+        }
+
+        /// <summary>
+        /// Получить идентификатор.
+        /// </summary>
+        /// <param name="person">Пользователь.</param>
+        private ClaimsIdentity GetIdentity(Person person)
+        {
+            var claims = new List<Claim>
+            {
+                new Claim(ClaimsIdentity.DefaultNameClaimType, person.Name),
+            };
+
+            var claimsIdentity =
+                new ClaimsIdentity(claims, "Token", ClaimsIdentity.DefaultNameClaimType,
+                    ClaimsIdentity.DefaultRoleClaimType);
+
+            return claimsIdentity;
         }
     }
 }
